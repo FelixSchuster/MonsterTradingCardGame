@@ -1,11 +1,11 @@
 package at.fhtw.sampleapp.service.weather;
 
-import at.fhtw.sampleserver.http.ContentType;
-import at.fhtw.sampleserver.http.HttpStatus;
-import at.fhtw.sampleserver.http.Method;
-import at.fhtw.sampleserver.server.Request;
-import at.fhtw.sampleserver.server.Response;
-import at.fhtw.sampleserver.server.Service;
+import at.fhtw.server.http.ContentType;
+import at.fhtw.server.http.HttpStatus;
+import at.fhtw.server.http.Method;
+import at.fhtw.server.server.Request;
+import at.fhtw.server.server.Response;
+import at.fhtw.server.server.Service;
 
 public class WeatherService implements Service {
     private final WeatherController weatherController;

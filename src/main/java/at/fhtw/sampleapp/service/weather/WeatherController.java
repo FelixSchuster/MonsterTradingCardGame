@@ -3,10 +3,10 @@ package at.fhtw.sampleapp.service.weather;
 import at.fhtw.sampleapp.controller.Controller;
 import at.fhtw.sampleapp.model.Weather;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import at.fhtw.sampleserver.http.ContentType;
-import at.fhtw.sampleserver.http.HttpStatus;
-import at.fhtw.sampleserver.server.Request;
-import at.fhtw.sampleserver.server.Response;
+import at.fhtw.server.http.ContentType;
+import at.fhtw.server.http.HttpStatus;
+import at.fhtw.server.server.Request;
+import at.fhtw.server.server.Response;
 
 import java.util.List;
 

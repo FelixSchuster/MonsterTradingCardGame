@@ -4,71 +4,45 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c41f9cc9-d6bc-4197-a30a-3817a529b5a0" name="Changes" comment="">
+    <list default="true" id="c41f9cc9-d6bc-4197-a30a-3817a529b5a0" name="Changes" comment="intelliJ project added">
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/client/main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/httpserver/http/ContentType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/httpserver/http/HttpStatus.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/httpserver/http/Method.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/httpserver/server/HeaderMap.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/httpserver/server/Request.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/httpserver/server/Response.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/httpserver/server/Server.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/httpserver/server/Service.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/httpserver/utils/RequestBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/httpserver/utils/RequestHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/httpserver/utils/Router.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/sampleapp/controller/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/sampleapp/model/Weather.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/sampleapp/service/echo/EchoService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/sampleapp/service/weather/WeatherController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/sampleapp/service/weather/WeatherDAL.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/sampleapp/service/weather/WeatherService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/test/java/at/fhtw/httpserver/server/RequestTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/test/java/at/fhtw/httpserver/server/ServerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/test/java/at/fhtw/httpserver/utils/RequestBuilderTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/test/java/at/fhtw/sampleapp/service/weather/WeatherTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/httpserver/http/ContentType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/httpserver/http/HttpStatus.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/httpserver/http/Method.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/httpserver/server/HeaderMap.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/httpserver/server/Request.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/httpserver/server/Response.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/httpserver/server/Server.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/httpserver/server/Service.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/httpserver/utils/RequestBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/httpserver/utils/RequestHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/httpserver/utils/Router.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/sampleapp/controller/Controller.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/sampleapp/model/Weather.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/sampleapp/service/echo/EchoService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/sampleapp/service/weather/WeatherController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/sampleapp/service/weather/WeatherDAL.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/sampleapp/service/weather/WeatherService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/test-classes/at/fhtw/httpserver/server/RequestTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/test-classes/at/fhtw/httpserver/server/ServerTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/test-classes/at/fhtw/httpserver/utils/RequestBuilderTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/test-classes/at/fhtw/sampleapp/service/weather/WeatherTest$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/test-classes/at/fhtw/sampleapp/service/weather/WeatherTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/client/main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/server/main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/sampleapp/service/echo/EchoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/sampleapp/service/echo/EchoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/sampleapp/service/weather/WeatherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/sampleapp/service/weather/WeatherController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/sampleapp/service/weather/WeatherService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/sampleapp/service/weather/WeatherService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/sampleserver/http/ContentType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/server/http/ContentType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/sampleserver/http/HttpStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/server/http/HttpStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/sampleserver/http/Method.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/server/http/Method.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/sampleserver/server/HeaderMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/server/server/HeaderMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/sampleserver/server/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/server/server/Request.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/sampleserver/server/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/server/server/Response.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/sampleserver/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/server/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/sampleserver/server/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/server/server/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/sampleserver/utils/RequestBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/server/utils/RequestBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/sampleserver/utils/RequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/server/utils/RequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/sampleserver/utils/Router.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/server/utils/Router.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/at/fhtw/sampleserver/server/RequestTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/at/fhtw/server/server/RequestTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/at/fhtw/sampleserver/server/ServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/at/fhtw/server/server/ServerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/at/fhtw/sampleserver/utils/RequestBuilderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/at/fhtw/server/utils/RequestBuilderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/fhtw/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/sampleapp/service/echo/EchoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/fhtw/sampleapp/service/echo/EchoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/sampleapp/service/weather/WeatherController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/fhtw/sampleapp/service/weather/WeatherController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/sampleapp/service/weather/WeatherService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/fhtw/sampleapp/service/weather/WeatherService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/sampleserver/http/ContentType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/sampleserver/http/HttpStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/sampleserver/http/Method.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/sampleserver/server/HeaderMap.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/sampleserver/server/Request.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/sampleserver/server/Response.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/sampleserver/server/Server.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/sampleserver/server/Service.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/sampleserver/utils/RequestBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/sampleserver/utils/RequestHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/sampleserver/utils/Router.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/at/fhtw/sampleserver/server/RequestTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/at/fhtw/sampleserver/server/ServerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/at/fhtw/sampleserver/utils/RequestBuilderTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,13 +127,13 @@
       <recent name="server" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.WeatherTest (1)">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="at.fhtw.Main" />
+      <option name="MAIN_CLASS_NAME" value="at.fhtw.server.Main" />
       <module name="MonsterTradingCardGame" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="at.fhtw.*" />
+          <option name="PATTERN" value="at.fhtw.server.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -171,14 +145,44 @@
       <module name="http-server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="at.fhtw.sampleserver.utils.*" />
+          <option name="PATTERN" value="at.fhtw.server.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="at.fhtw.httpserver.utils" />
-      <option name="MAIN_CLASS_NAME" value="at.fhtw.sampleserver.utils.RequestBuilderTest" />
+      <option name="MAIN_CLASS_NAME" value="at.fhtw.server.utils.RequestBuilderTest" />
       <option name="METHOD_NAME" value="testBuildRequestFromGet" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RequestTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MonsterTradingCardGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="at.fhtw.server.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="at.fhtw.server.server" />
+      <option name="MAIN_CLASS_NAME" value="at.fhtw.server.server.RequestTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MonsterTradingCardGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="at.fhtw.server.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="at.fhtw.server.server" />
+      <option name="MAIN_CLASS_NAME" value="at.fhtw.server.server.ServerTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -198,44 +202,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WeatherTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="http-server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="at.fhtw.sampleapp.service.weather.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="at.fhtw.sampleapp.service.weather" />
-      <option name="MAIN_CLASS_NAME" value="at.fhtw.sampleapp.service.weather.WeatherTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="WeatherTest.testWeatherServiceGetById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="http-server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="at.fhtw.sampleapp.service.weather.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="at.fhtw.sampleapp.service.weather" />
-      <option name="MAIN_CLASS_NAME" value="at.fhtw.sampleapp.service.weather.WeatherTest" />
-      <option name="METHOD_NAME" value="testWeatherServiceGetById" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.WeatherTest (1)" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.RequestTest" />
+        <item itemvalue="JUnit.ServerTest" />
+        <item itemvalue="JUnit.WeatherTest (1)" />
         <item itemvalue="JUnit.RequestBuilderTest.testBuildRequestFromGet" />
-        <item itemvalue="JUnit.WeatherTest" />
-        <item itemvalue="JUnit.WeatherTest.testWeatherServiceGetById" />
       </list>
     </recent_temporary>
   </component>

@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c41f9cc9-d6bc-4197-a30a-3817a529b5a0" name="Changes" comment="file structure updated">
+    <list default="true" id="c41f9cc9-d6bc-4197-a30a-3817a529b5a0" name="Changes" comment="documentation added">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/createTables.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/MonsterTradingCardGame.drawio" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/MonsterTradingCardGame.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/MonsterTradingCardGame.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/Timetracking.txt" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/Timetracking.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +31,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitSEFilterConfiguration">
@@ -52,6 +65,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
@@ -65,6 +79,11 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
+    ]
   }
 }</component>
   <component name="RecentsManager">
@@ -168,9 +187,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.RequestTest" />
-        <item itemvalue="JUnit.ServerTest" />
         <item itemvalue="JUnit.WeatherTest (1)" />
+        <item itemvalue="JUnit.ServerTest" />
+        <item itemvalue="JUnit.RequestTest" />
         <item itemvalue="JUnit.RequestBuilderTest.testBuildRequestFromGet" />
       </list>
     </recent_temporary>
@@ -188,7 +207,18 @@
       <workItem from="1664548398598" duration="865000" />
       <workItem from="1667461325066" duration="12084000" />
       <workItem from="1668784063945" duration="1430000" />
+      <workItem from="1668795142945" duration="1566000" />
+      <workItem from="1668796724060" duration="701000" />
+      <workItem from="1668797489312" duration="3255000" />
     </task>
+    <task id="LOCAL-00001" summary="documentation added">
+      <created>1668795171468</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1668795171468</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,6 +234,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="documentation added" />
+    <option name="LAST_COMMIT_MESSAGE" value="documentation added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

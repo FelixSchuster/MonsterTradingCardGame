@@ -1,3 +1,4 @@
 Datum,Startzeit,Endzeit,Aufgabe
 2022-11-18,11:00,15:00,Git Setup
 2022-11-18,18:00,19:00,Git Setup
+2022-11-18,19:00,,Database Setup

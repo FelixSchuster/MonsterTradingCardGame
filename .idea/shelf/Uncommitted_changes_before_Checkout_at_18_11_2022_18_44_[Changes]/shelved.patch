@@ -1,0 +1,130 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -4,72 +4,7 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="c41f9cc9-d6bc-4197-a30a-3817a529b5a0" name="Changes" comment="">
+-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/client/main.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/server/main.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/.idea/.gitignore" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/.idea/compiler.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/.idea/jarRepositories.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/.idea/misc.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/.idea/uiDesigner.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/pom.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/Main.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/httpserver/http/ContentType.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/httpserver/http/HttpStatus.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/httpserver/http/Method.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/httpserver/server/HeaderMap.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/httpserver/server/Request.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/httpserver/server/Response.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/httpserver/server/Server.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/httpserver/server/Service.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/httpserver/utils/RequestBuilder.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/httpserver/utils/RequestHandler.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/httpserver/utils/Router.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/sampleapp/controller/Controller.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/sampleapp/model/Weather.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/sampleapp/service/echo/EchoService.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/sampleapp/service/weather/WeatherController.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/sampleapp/service/weather/WeatherDAL.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/main/java/at/fhtw/sampleapp/service/weather/WeatherService.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/test/java/at/fhtw/httpserver/server/RequestTest.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/test/java/at/fhtw/httpserver/server/ServerTest.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/test/java/at/fhtw/httpserver/utils/RequestBuilderTest.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/src/test/java/at/fhtw/sampleapp/service/weather/WeatherTest.java" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/Main.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/httpserver/http/ContentType.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/httpserver/http/HttpStatus.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/httpserver/http/Method.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/httpserver/server/HeaderMap.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/httpserver/server/Request.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/httpserver/server/Response.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/httpserver/server/Server.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/httpserver/server/Service.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/httpserver/utils/RequestBuilder.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/httpserver/utils/RequestHandler.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/httpserver/utils/Router.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/sampleapp/controller/Controller.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/sampleapp/model/Weather.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/sampleapp/service/echo/EchoService.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/sampleapp/service/weather/WeatherController.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/sampleapp/service/weather/WeatherDAL.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/classes/at/fhtw/sampleapp/service/weather/WeatherService.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/test-classes/at/fhtw/httpserver/server/RequestTest.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/test-classes/at/fhtw/httpserver/server/ServerTest.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/test-classes/at/fhtw/httpserver/utils/RequestBuilderTest.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/test-classes/at/fhtw/sampleapp/service/weather/WeatherTest$1.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/sample-http-server/target/test-classes/at/fhtw/sampleapp/service/weather/WeatherTest.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/client/main.class" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/server/main.class" beforeDir="false" />
+-    </list>
++    <list default="true" id="c41f9cc9-d6bc-4197-a30a-3817a529b5a0" name="Changes" comment="re-added sample project" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -86,6 +21,11 @@
+     </option>
+   </component>
+   <component name="Git.Settings">
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="main" />
++      </map>
++    </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+   <component name="GitSEFilterConfiguration">
+@@ -251,8 +191,23 @@
+       <workItem from="1664282874991" duration="10572000" />
+       <workItem from="1664548398598" duration="865000" />
+       <workItem from="1667461325066" duration="12084000" />
+-      <workItem from="1668784063945" duration="1430000" />
++      <workItem from="1668784063945" duration="1748000" />
+     </task>
++    <task id="LOCAL-00001" summary="re-added sample project">
++      <created>1668793163454</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1668793163454</updated>
++    </task>
++    <task id="LOCAL-00002" summary="re-added sample project">
++      <created>1668793364842</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1668793364842</updated>
++    </task>
++    <option name="localTasksCounter" value="3" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -268,6 +223,10 @@
+         </entry>
+       </map>
+     </option>
++  </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="re-added sample project" />
++    <option name="LAST_COMMIT_MESSAGE" value="re-added sample project" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>

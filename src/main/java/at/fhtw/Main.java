@@ -1,4 +1,4 @@
-package at.fhtw.server;
+package at.fhtw;
 
 import at.fhtw.server.utils.Router;
 import at.fhtw.server.server.Server;

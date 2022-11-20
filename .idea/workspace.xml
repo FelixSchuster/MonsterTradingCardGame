@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c41f9cc9-d6bc-4197-a30a-3817a529b5a0" name="Changes" comment="documentation added">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/createTables.sql" afterDir="false" />
+    <list default="true" id="c41f9cc9-d6bc-4197-a30a-3817a529b5a0" name="Changes" comment="database added&#10;er-diagram added">
+      <change afterPath="$PROJECT_DIR$/database/dropTables.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/MonsterTradingCardGame.drawio" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/MonsterTradingCardGame.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/MonsterTradingCardGame.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/EntityRelationshipDiagram.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/database/EntityRelationshipDiagram.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/createTables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/createTables.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/documentation/Timetracking.txt" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/Timetracking.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/server/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +23,8 @@
       <list>
         <option value="Enum" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -61,31 +59,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
-    &quot;last_directory_selection&quot;: &quot;Z:/Technikum/SWEN/Server/http-server/src/main/java/at/fhtw&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/edin/Workspaces/Swen1Projects/http-server/src/test/java&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
+    "full.screen.before.presentation.mode": "false",
+    "last_directory_selection": "Z:/Technikum/SWEN/Server/http-server/src/main/java/at/fhtw",
+    "last_opened_file_path": "C:/Users/Felix/OneDrive - FH Technikum Wien/BIF/3_Semester/SWEN1/Projekte/MonsterTradingCardGame/src/main/java/at/fhtw/mtcgapp",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.uml"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ],
+    "RunConfigurationTargetLRU": [
+      "757022c8-ac54-46ac-a80c-9ed0993322a7"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\edin\Workspaces\Swen1Projects\http-server\src\test\java" />
@@ -93,11 +96,14 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Felix\OneDrive - FH Technikum Wien\BIF\3_Semester\SWEN1\Projekte\MonsterTradingCardGame\src\main\java\at\fhtw\mtcgapp" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="at.fhtw" />
       <recent name="at.fhtw.sampleapp.service.weather" />
       <recent name="at.fhtw.httpserver.server" />
       <recent name="at.fhtw.httpserver" />
-      <recent name="at.fhtw" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="at.fhtw.httpserver.utils" />
@@ -109,13 +115,13 @@
       <recent name="server" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Database Script.createTables.sql">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="at.fhtw.server.Main" />
+      <option name="MAIN_CLASS_NAME" value="at.fhtw.Main" />
       <module name="MonsterTradingCardGame" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="at.fhtw.server.*" />
+          <option name="PATTERN" value="at.fhtw.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -123,36 +129,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RequestBuilderTest.testBuildRequestFromGet" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="http-server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="at.fhtw.server.utils.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="at.fhtw.httpserver.utils" />
-      <option name="MAIN_CLASS_NAME" value="at.fhtw.server.utils.RequestBuilderTest" />
-      <option name="METHOD_NAME" value="testBuildRequestFromGet" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="createTables.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/database/createTables.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="757022c8-ac54-46ac-a80c-9ed0993322a7" />
+      <method v="2" />
     </configuration>
-    <configuration name="RequestTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MonsterTradingCardGame" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="at.fhtw.server.server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="at.fhtw.server.server" />
-      <option name="MAIN_CLASS_NAME" value="at.fhtw.server.server.RequestTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="dropTables.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
+      <script-file value="$PROJECT_DIR$/database/dropTables.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="757022c8-ac54-46ac-a80c-9ed0993322a7" />
+      <method v="2" />
     </configuration>
     <configuration name="ServerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MonsterTradingCardGame" />
@@ -186,11 +173,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Database Script.createTables.sql" />
+        <item itemvalue="Database Script.dropTables.sql" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.WeatherTest (1)" />
         <item itemvalue="JUnit.ServerTest" />
-        <item itemvalue="JUnit.RequestTest" />
-        <item itemvalue="JUnit.RequestBuilderTest.testBuildRequestFromGet" />
       </list>
     </recent_temporary>
   </component>
@@ -209,7 +196,9 @@
       <workItem from="1668784063945" duration="1430000" />
       <workItem from="1668795142945" duration="1566000" />
       <workItem from="1668796724060" duration="701000" />
-      <workItem from="1668797489312" duration="3255000" />
+      <workItem from="1668797489312" duration="3409000" />
+      <workItem from="1668801298800" duration="11000" />
+      <workItem from="1668940290048" duration="12157000" />
     </task>
     <task id="LOCAL-00001" summary="documentation added">
       <created>1668795171468</created>
@@ -218,7 +207,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668795171468</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="database added&#10;er-diagram added">
+      <created>1668801175363</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1668801175363</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,7 +233,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="documentation added" />
-    <option name="LAST_COMMIT_MESSAGE" value="documentation added" />
+    <MESSAGE value="database added&#10;er-diagram added" />
+    <option name="LAST_COMMIT_MESSAGE" value="database added&#10;er-diagram added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -246,17 +243,11 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/at/fhtw/sampleapp/service/weather/WeatherService.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/at/fhtw/sampleapp/service/weather/WeatherController.java</url>
-          <line>23</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

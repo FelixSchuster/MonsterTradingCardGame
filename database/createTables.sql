@@ -110,3 +110,7 @@ ALTER TABLE deck_card_quantities
     ADD CONSTRAINT card_id_fk_deck_card_quantities
         FOREIGN KEY (card_id)
             REFERENCES cards (card_id);
+
+INSERT INTO users (name, password, coins, elo) VALUES ('Felix', 'pass', 123, 100);
+
+SELECT * FROM users;

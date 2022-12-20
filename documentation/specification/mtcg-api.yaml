@@ -28,7 +28,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#components/schemas/UserCredentials'
+              $ref: '#/components/schemas/UserCredentials'
         required: true
       responses:
         '201':
@@ -79,7 +79,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#components/schemas/UserData'
+              $ref: '#/components/schemas/UserData'
         required: true
       responses:
         '200':
@@ -100,7 +100,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#components/schemas/UserCredentials'
+              $ref: '#/components/schemas/UserCredentials'
         required: true
       responses:
         '200':

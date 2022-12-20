@@ -1,9 +1,14 @@
 CREATE TABLE users (
     user_id SERIAL,
-    name VARCHAR(32) UNIQUE NOT NULL,
-    password VARCHAR(64) NOT NULL,
+    username VARCHAR UNIQUE NOT NULL,
+    password VARCHAR NOT NULL,
+    name VARCHAR DEFAULT NULL,
+    bio VARCHAR DEFAULT NULL,
+    image VARCHAR DEFAULT NULL,
     coins INTEGER NOT NULL DEFAULT 20,
     elo INTEGER NOT NULL DEFAULT 100,
+    wins INTEGER NOT NULL DEFAULT 0,
+    losses INTEGER NOT NULL DEFAULT 0,
 
     PRIMARY KEY (user_id)
 );
@@ -11,7 +16,7 @@ CREATE TABLE users (
 CREATE TABLE tokens (
     token_id SERIAL,
     user_id INTEGER NOT NULL,
-    token VARCHAR(32) NOT NULL,
+    token VARCHAR NOT NULL,
 
     PRIMARY KEY (token_id)
 );
@@ -25,7 +30,7 @@ CREATE TABLE stacks (
 
 CREATE TABLE stack_card_quantities (
     stack_id INTEGER NOT NULL,
-    card_id INTEGER NOT NULL,
+    card_id VARCHAR NOT NULL,
     quantity INTEGER NULL,
 
     PRIMARY KEY (stack_id, card_id)
@@ -40,28 +45,28 @@ CREATE TABLE decks (
 
 CREATE TABLE deck_card_quantities (
     deck_id INTEGER NOT NULL,
-    card_id INTEGER NOT NULL,
+    card_id VARCHAR NOT NULL,
     quantity INTEGER NULL,
 
     PRIMARY KEY (deck_id, card_id)
 );
 
-CREATE TABLE store (
-    store_id SERIAL,
+CREATE TABLE trading_deal (
+    trading_deal_id VARCHAR NOT NULL,
     user_id INTEGER NOT NULL,
-    card_id INTEGER NOT NULL,
-    quantity INTEGER NULL,
-    requirement VARCHAR(128) NULL,
+    card_id VARCHAR NOT NULL,
+    type VARCHAR NOT NULL,  /* requirement */
+    minimum_damage VARCHAR NOT NULL,    /* requirement */
 
-    PRIMARY KEY (store_id)
+    PRIMARY KEY (trading_deal_id)
 );
 
 CREATE TABLE cards (
-    card_id SERIAL,
-    name VARCHAR(32) NOT NULL,
-    damage INTEGER NOT NULL,
-    category VARCHAR(1) NOT NULL,   /* s... spell card, m... monster card */
-    element_type VARCHAR(1) NOT NULL,   /* w... water, f... fire, n... normal */
+    card_id VARCHAR NOT NULL,
+    name VARCHAR NOT NULL,
+    damage FLOAT NOT NULL,
+    category VARCHAR NOT NULL,   /* s... spell card, m... monster card */
+    element_type VARCHAR NOT NULL,   /* w... water, f... fire, n... normal */
 
     PRIMARY KEY (card_id)
 );
@@ -71,13 +76,13 @@ ALTER TABLE tokens
         FOREIGN KEY (user_id)
             REFERENCES users (user_id);
 
-ALTER TABLE store
-    ADD CONSTRAINT user_id_fk_store
+ALTER TABLE trading_deal
+    ADD CONSTRAINT user_id_fk_trading_deal
         FOREIGN KEY (user_id)
             REFERENCES users (user_id);
 
-ALTER TABLE store
-    ADD CONSTRAINT card_id_fk_store
+ALTER TABLE trading_deal
+    ADD CONSTRAINT card_id_fk_trading_deal
         FOREIGN KEY (card_id)
             REFERENCES cards (card_id);
 

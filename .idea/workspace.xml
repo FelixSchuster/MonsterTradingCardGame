@@ -4,8 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c41f9cc9-d6bc-4197-a30a-3817a529b5a0" name="Changes" comment="database updated, er diagram updated">
+    <list default="true" id="c41f9cc9-d6bc-4197-a30a-3817a529b5a0" name="Changes" comment="added user service">
+      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/dal/DataAccessException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/dal/DataNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/dal/DatabaseConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/dal/PrimaryKeyAlreadyExistsException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/dal/UnitOfWork.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/dal/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/model/Card.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/model/TradingDeal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/model/UserCredentials.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/model/UserData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/model/UserStats.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/EntityRelationshipDiagram.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/database/EntityRelationshipDiagram.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/EntityRelationshipDiagram.drawio.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/database/EntityRelationshipDiagram.drawio.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/EntityRelationshipDiagram.drawio.png" beforeDir="false" afterPath="$PROJECT_DIR$/database/EntityRelationshipDiagram.drawio.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/createTables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/createTables.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/dropTables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/dropTables.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/documentation/Timetracking.txt" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/Timetracking.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/specification/mtcg-api.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/specification/mtcg-api.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/service/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/service/user/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/service/user/UserDAL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/service/user/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/service/user/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/fhtw/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/mtcg/service/user/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/fhtw/mtcg/service/user/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/mtcg/service/user/UserDAL.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/mtcg/service/user/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/fhtw/mtcg/service/user/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,30 +85,20 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
     "full.screen.before.presentation.mode": "false",
     "last_directory_selection": "Z:/Technikum/SWEN/Server/http-server/src/main/java/at/fhtw",
-    "last_opened_file_path": "C:/Users/Felix/OneDrive - FH Technikum Wien/BIF/3_Semester/SWEN1/Projekte/MonsterTradingCardGame/src/main/java/at/fhtw/mtcgapp",
+    "last_opened_file_path": "C:/Users/Felix/OneDrive - FH Technikum Wien/BIF/3_Semester/SWEN1/Projekte/2022-12-20_-_HttpServer_Teil_5",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.uml"
-  },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
-    ],
-    "RunConfigurationTargetLRU": [
-      "757022c8-ac54-46ac-a80c-9ed0993322a7"
-    ]
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -91,15 +109,18 @@
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Felix\OneDrive - FH Technikum Wien\BIF\3_Semester\SWEN1\Projekte\MonsterTradingCardGame\src\main\java\at\fhtw\mtcgapp" />
+      <recent name="C:\Users\Felix\OneDrive - FH Technikum Wien\BIF\3_Semester\SWEN1\Projekte\MonsterTradingCardGame\src\main\java\at\fhtw\mtcg\service\" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="at.fhtw" />
+      <recent name="at.fhtw.mtcg.service.exception" />
+      <recent name="at.fhtw.mtcg.service.user.exception" />
       <recent name="at.fhtw.sampleapp.service.weather" />
       <recent name="at.fhtw.httpserver.server" />
       <recent name="at.fhtw.httpserver" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="at.fhtw.mtcg.service.user" />
+      <recent name="at.fhtw.sampleapp.controller" />
       <recent name="at.fhtw.httpserver.utils" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -135,16 +156,16 @@
       <data-source id="757022c8-ac54-46ac-a80c-9ed0993322a7" />
       <method v="2" />
     </configuration>
-    <configuration name="ServerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MonsterTradingCardGame" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="at.fhtw.server.server.*" />
+          <option name="PATTERN" value="at.fhtw.mtcg.service.exception.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="at.fhtw.server.server" />
-      <option name="MAIN_CLASS_NAME" value="at.fhtw.server.server.ServerTest" />
+      <option name="PACKAGE_NAME" value="at.fhtw.mtcg.service.user" />
+      <option name="MAIN_CLASS_NAME" value="at.fhtw.mtcg.service.user.UserControllerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -170,8 +191,8 @@
         <item itemvalue="Database Script.createTables.sql" />
         <item itemvalue="Database Script.dropTables.sql" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.UserControllerTest" />
         <item itemvalue="JUnit.WeatherTest (1)" />
-        <item itemvalue="JUnit.ServerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -188,34 +209,29 @@
       <workItem from="1664548398598" duration="865000" />
       <workItem from="1667461325066" duration="12084000" />
       <workItem from="1668784063945" duration="1430000" />
-      <workItem from="1668795142945" duration="1566000" />
-      <workItem from="1668796724060" duration="701000" />
-      <workItem from="1668797489312" duration="3409000" />
-      <workItem from="1668801298800" duration="11000" />
-      <workItem from="1668940290048" duration="12474000" />
+      <workItem from="1668993409365" duration="65000" />
+      <workItem from="1669021968389" duration="825000" />
+      <workItem from="1669628321990" duration="92000" />
+      <workItem from="1669628567903" duration="5722000" />
+      <workItem from="1669709911449" duration="14088000" />
+      <workItem from="1670261003270" duration="24000" />
+      <workItem from="1670262681582" duration="17000" />
+      <workItem from="1670262702786" duration="343000" />
+      <workItem from="1670283067364" duration="363000" />
+      <workItem from="1670310174103" duration="72000" />
+      <workItem from="1670587684879" duration="5000" />
+      <workItem from="1670589488838" duration="13000" />
+      <workItem from="1670589506317" duration="629000" />
+      <workItem from="1671539742128" duration="16513000" />
     </task>
-    <task id="LOCAL-00001" summary="documentation added">
-      <created>1668795171468</created>
+    <task id="LOCAL-00001" summary="added user service">
+      <created>1668993353729</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1668795171468</updated>
+      <updated>1668993353729</updated>
     </task>
-    <task id="LOCAL-00002" summary="database added&#10;er-diagram added">
-      <created>1668801175363</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1668801175363</updated>
-    </task>
-    <task id="LOCAL-00003" summary="database updated, er diagram updated">
-      <created>1668962892438</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1668962892438</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,10 +249,8 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="documentation added" />
-    <MESSAGE value="database added&#10;er-diagram added" />
-    <MESSAGE value="database updated, er diagram updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="database updated, er diagram updated" />
+    <MESSAGE value="added user service" />
+    <option name="LAST_COMMIT_MESSAGE" value="added user service" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

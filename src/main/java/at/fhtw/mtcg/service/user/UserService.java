@@ -1,5 +1,7 @@
 package at.fhtw.mtcg.service.user;
 
+import at.fhtw.mtcg.dal.UnitOfWork;
+import at.fhtw.mtcg.dal.repository.UserRepository;
 import at.fhtw.server.http.Method;
 import at.fhtw.server.server.Request;
 import at.fhtw.server.server.Response;
@@ -10,18 +12,22 @@ public class UserService implements Service {
     private final UserController userController;
 
     public UserService() {
-        this.userController = new UserController(new UserDAL());
+        this.userController = new UserController();
     }
 
     @Override
     public Response handleRequest(Request request) {
 
-        if (request.getMethod() == Method.GET) {
-            return this.userController.getUser();
+        if (request.getMethod() == Method.GET && request.getPathParts().size() > 1) {
+            return this.userController.getUserData(request.getPathParts().get(1));
         }
 
         if (request.getMethod() == Method.POST) {
             return this.userController.addUser(request);
+        }
+
+        if (request.getMethod() == Method.PUT) {
+            return this.userController.updateUserData(request.getPathParts().get(1), request);
         }
 
         return null;

@@ -1,7 +1,6 @@
 package at.fhtw.mtcg.model;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
-
 public class Card {
     @JsonAlias({"Id"})
     String id;

@@ -1,7 +1,6 @@
 package at.fhtw.mtcg.model;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
-
 public class TradingDeal {
     @JsonAlias({"Id"})
     String id;
@@ -13,7 +12,6 @@ public class TradingDeal {
     Float minimumDamage;
 
     // Jackson needs the default constructor
-
     public TradingDeal() {}
     public TradingDeal(String id, String cardToTrade, String type, Float minimumDamage) {
         this.id = id;

@@ -1,7 +1,6 @@
 package at.fhtw.mtcg.model;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
-
 public class UserStats {
     @JsonAlias({"Name"})
     String name;

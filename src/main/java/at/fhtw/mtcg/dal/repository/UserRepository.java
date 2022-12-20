@@ -6,11 +6,9 @@ import at.fhtw.mtcg.exception.DataAccessException;
 import at.fhtw.mtcg.dal.UnitOfWork;
 import at.fhtw.mtcg.model.UserCredentials;
 import at.fhtw.mtcg.model.UserData;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 public class UserRepository {
     private UnitOfWork unitOfWork;
     public UserRepository(UnitOfWork unitOfWork) {
@@ -25,11 +23,9 @@ public class UserRepository {
             preparedStatement.executeQuery();
             ResultSet resultSet = preparedStatement.getResultSet();
 
-            if (resultSet == null) {
+            if (!resultSet.next()) {
                 throw new DataNotFoundException("User not found.");
             }
-
-            resultSet.next();
 
             String name = resultSet.getString("name");
             String bio = resultSet.getString("bio");

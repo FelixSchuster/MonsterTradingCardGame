@@ -1,11 +1,9 @@
 package at.fhtw.mtcg.dal;
 
 import at.fhtw.mtcg.exception.DataAccessException;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-
 public class UnitOfWork implements AutoCloseable {
     private Connection connection;
     public UnitOfWork() {

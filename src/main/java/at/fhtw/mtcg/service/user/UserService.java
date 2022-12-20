@@ -13,7 +13,7 @@ public class UserService implements Service {
     public Response handleRequest(Request request) {
 
         if (request.getMethod() == Method.GET && request.getPathParts().size() > 1) {
-            return this.userController.getUserData(request.getPathParts().get(1));
+            return this.userController.getUserData(request);
         }
 
         if (request.getMethod() == Method.POST) {
@@ -21,7 +21,7 @@ public class UserService implements Service {
         }
 
         if (request.getMethod() == Method.PUT) {
-            return this.userController.updateUserData(request.getPathParts().get(1), request);
+            return this.userController.updateUserData(request);
         }
 
         return null;

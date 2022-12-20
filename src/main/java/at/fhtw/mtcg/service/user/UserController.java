@@ -1,7 +1,9 @@
 package at.fhtw.mtcg.service.user;
 
+import at.fhtw.mtcg.dal.repository.SessionRepository;
 import at.fhtw.mtcg.exception.DataAccessException;
 import at.fhtw.mtcg.exception.DataNotFoundException;
+import at.fhtw.mtcg.exception.InvalidTokenException;
 import at.fhtw.mtcg.exception.PrimaryKeyAlreadyExistsException;
 import at.fhtw.mtcg.dal.UnitOfWork;
 import at.fhtw.mtcg.dal.repository.UserRepository;
@@ -16,14 +18,17 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 public class UserController extends Controller {
 
     // get /users/{username}
-    public Response getUserData(String username) {
-
-        // TODO: check for authentication
+    public Response getUserData(Request request) {
 
         UnitOfWork unitOfWork = new UnitOfWork();
         UserRepository userRepository = new UserRepository(unitOfWork);
+        SessionRepository sessionRepository = new SessionRepository(unitOfWork);
+        String username = request.getPathParts().get(1);
+        String token = request.getHeaderMap().getAuthorizationTokenHeader().substring(6);
 
         try {
+            sessionRepository.checkForValidToken(username, token); // check for valid token
+
             UserData userData = userRepository.getUserData(username);
             String userDataJSON = this.getObjectMapper().writeValueAsString(userData);
             unitOfWork.commitTransaction();
@@ -33,6 +38,11 @@ public class UserController extends Controller {
             // e.printStackTrace();
             unitOfWork.rollbackTransaction();
             return new Response(HttpStatus.NOT_FOUND, ContentType.JSON, "{ \"message\": \"User not found.\" }");
+
+        } catch(InvalidTokenException e) {
+            // e.printStackTrace();
+            unitOfWork.rollbackTransaction();
+            return new Response(HttpStatus.UNAUTHORIZED, ContentType.JSON, "{ \"message\": \"Authentication information is missing or invalid\" }");
 
         } catch(DataAccessException e) {
             // e.printStackTrace();
@@ -46,14 +56,17 @@ public class UserController extends Controller {
     }
 
     // PUT /users/{username}
-    public Response updateUserData(String username, Request request) {
-
-        // TODO: check for authentication
+    public Response updateUserData(Request request) {
 
         UnitOfWork unitOfWork = new UnitOfWork();
         UserRepository userRepository = new UserRepository(unitOfWork);
+        SessionRepository sessionRepository = new SessionRepository(unitOfWork);
+        String username = request.getPathParts().get(1);
+        String token = request.getHeaderMap().getAuthorizationTokenHeader().substring(6);
 
         try {
+            sessionRepository.checkForValidToken(username, token); // check for valid token
+
             UserData userData = this.getObjectMapper().readValue(request.getBody(), UserData.class);
             userRepository.updateUserData(username, userData);
             unitOfWork.commitTransaction();
@@ -63,6 +76,11 @@ public class UserController extends Controller {
             // e.printStackTrace();
             unitOfWork.rollbackTransaction();
             return new Response(HttpStatus.NOT_FOUND, ContentType.JSON, "{ \"message\": \"User not found.\" }");
+
+        } catch(InvalidTokenException e) {
+            // e.printStackTrace();
+            unitOfWork.rollbackTransaction();
+            return new Response(HttpStatus.UNAUTHORIZED, ContentType.JSON, "{ \"message\": \"Authentication information is missing or invalid\" }");
 
         } catch (JsonProcessingException e) {
             // e.printStackTrace();

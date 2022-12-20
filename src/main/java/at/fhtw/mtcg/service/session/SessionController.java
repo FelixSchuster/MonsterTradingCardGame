@@ -20,12 +20,13 @@ public class SessionController extends Controller {
         try {
             UserCredentials userCredentials = this.getObjectMapper().readValue(request.getBody(), UserCredentials.class);
             String token = userCredentials.getUsername() + "-mtcgToken";
-            int userId = sessionRepository.isValidCredentials(userCredentials);
+            int userId = sessionRepository.checkForValidCredentials(userCredentials);
             sessionRepository.saveToken(userId, token);
             String tokenJSON = this.getObjectMapper().writeValueAsString(token);
 
-                unitOfWork.commitTransaction();
-                return new Response(HttpStatus.OK, ContentType.JSON, tokenJSON);
+            unitOfWork.commitTransaction();
+            return new Response(HttpStatus.OK, ContentType.JSON, tokenJSON);
+
         } catch (DataNotFoundException e) {
             unitOfWork.rollbackTransaction();
             return new Response(HttpStatus.UNAUTHORIZED, ContentType.JSON, "{ \"message\": \"Invalid username/password provided\" }");

@@ -6,7 +6,6 @@ public enum ContentType {
     JSON("application/json");
 
     public final String type;
-
     ContentType(String type) {
         this.type = type;
     }

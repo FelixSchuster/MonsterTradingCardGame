@@ -8,4 +8,4 @@ Datum,Startzeit,Endzeit,Aufgabe
 2022-11-21,10:15,15:00,User Service
 2022-11-28,10:45,12:00,Database, Services, Models
 2022-11-29,13:00,16:00,Services, Models
-2022-12-20,13:45,,DAL
+2022-12-20,13:45,19:00,DAL

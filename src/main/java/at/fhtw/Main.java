@@ -1,5 +1,6 @@
 package at.fhtw;
 
+import at.fhtw.mtcg.service._package.PackageService;
 import at.fhtw.mtcg.service.session.SessionService;
 import at.fhtw.mtcg.service.user.UserService;
 import at.fhtw.server.utils.Router;
@@ -23,6 +24,7 @@ public class Main {
         router.addService("/echo", new EchoService());
         router.addService("/users", new UserService());
         router.addService("/sessions", new SessionService());
+        router.addService("/packages", new PackageService());
 
         return router;
     }

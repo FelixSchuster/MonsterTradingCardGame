@@ -17,7 +17,7 @@ public class UserService implements Service {
         }
 
         if (request.getMethod() == Method.POST) {
-            return this.userController.addUser(request);
+            return this.userController.createUser(request);
         }
 
         if (request.getMethod() == Method.PUT) {

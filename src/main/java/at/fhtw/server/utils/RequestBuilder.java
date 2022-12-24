@@ -34,7 +34,6 @@ public class RequestBuilder {
 
         return request;
     }
-
     private Method getMethod(String methodString) {
         return Method.valueOf(methodString.toUpperCase(Locale.ROOT));
     }

@@ -23,8 +23,11 @@ public class HeaderMap {
         return Integer.parseInt(header);
     }
     public String getAuthorizationTokenHeader() {
-        final String header = headers.get(AUTHORIZATION_TOKEN_HEADER);
-        return header;
+        String token = headers.get(AUTHORIZATION_TOKEN_HEADER);
+        if(token != null) {
+            token = token.substring(6);
+        }
+        return token;
     }
     public void print() {
         System.out.println(headers);

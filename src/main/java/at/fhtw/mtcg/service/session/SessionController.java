@@ -5,6 +5,7 @@ import at.fhtw.mtcg.dal.UnitOfWork;
 import at.fhtw.mtcg.dal.repository.SessionRepository;
 import at.fhtw.mtcg.exception.DataAccessException;
 import at.fhtw.mtcg.exception.DataNotFoundException;
+import at.fhtw.mtcg.exception.InsertFailedException;
 import at.fhtw.mtcg.model.UserCredentials;
 import at.fhtw.server.http.ContentType;
 import at.fhtw.server.http.HttpStatus;
@@ -21,24 +22,29 @@ public class SessionController extends Controller {
             UserCredentials userCredentials = this.getObjectMapper().readValue(request.getBody(), UserCredentials.class);
             String token = userCredentials.getUsername() + "-mtcgToken";
             int userId = sessionRepository.checkForValidCredentials(userCredentials);
-            sessionRepository.saveToken(userId, token);
-            String tokenJSON = this.getObjectMapper().writeValueAsString(token);
+            sessionRepository.createToken(userId, token);
 
             unitOfWork.commitTransaction();
-            return new Response(HttpStatus.OK, ContentType.JSON, tokenJSON);
+            return new Response(HttpStatus.OK, ContentType.JSON, "{\"token\":\"" + token + "\"}");
 
         } catch (DataNotFoundException e) {
             unitOfWork.rollbackTransaction();
-            return new Response(HttpStatus.UNAUTHORIZED, ContentType.JSON, "{ \"message\": \"Invalid username/password provided\" }");
+            return new Response(HttpStatus.UNAUTHORIZED, ContentType.JSON, "{\"message\":\"Invalid username/password provided\"}");
+
+        } catch(InsertFailedException e) {
+            // e.printStackTrace();
 
         } catch (DataAccessException e) {
             // e.printStackTrace();
 
         } catch (JsonProcessingException e) {
             // e.printStackTrace();
+
+        } catch (Exception e) {
+            // e.printStackTrace();
         }
 
         unitOfWork.rollbackTransaction();
-        return new Response(HttpStatus.INTERNAL_SERVER_ERROR, ContentType.JSON, "{ \"message\": \"Internal Server Error\" }");
+        return new Response(HttpStatus.INTERNAL_SERVER_ERROR, ContentType.JSON, "{\"message\":\"Internal Server Error\"}");
     }
 }

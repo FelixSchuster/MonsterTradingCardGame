@@ -16,14 +16,12 @@ public class RequestHandler implements Runnable {
     private Router router;
     private PrintWriter printWriter;
     private BufferedReader bufferedReader;
-
     public RequestHandler(Socket clientSocket, Router router) throws IOException {
         this.clientSocket = clientSocket;
         this.bufferedReader = new BufferedReader(new InputStreamReader(this.clientSocket.getInputStream()));
         this.printWriter = new PrintWriter(this.clientSocket.getOutputStream(), true);
         this.router = router;
     }
-
     @Override
     public void run() {
         try {

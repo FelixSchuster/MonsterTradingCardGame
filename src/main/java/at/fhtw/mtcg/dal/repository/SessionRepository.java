@@ -3,6 +3,7 @@ package at.fhtw.mtcg.dal.repository;
 import at.fhtw.mtcg.dal.UnitOfWork;
 import at.fhtw.mtcg.exception.DataAccessException;
 import at.fhtw.mtcg.exception.DataNotFoundException;
+import at.fhtw.mtcg.exception.InsertFailedException;
 import at.fhtw.mtcg.exception.InvalidTokenException;
 import at.fhtw.mtcg.model.UserCredentials;
 
@@ -29,31 +30,41 @@ public class SessionRepository {
             return resultSet.getInt("user_id");
 
         } catch (SQLException e) {
-            e.printStackTrace();
             throw new DataAccessException("DataAccessException in isValidCredentials: " + e);
         }
     }
-    public void saveToken(Integer userId, String token) {
+    public int createToken(Integer userId, String token) {
         try {
-            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("INSERT INTO tokens (user_id, token) VALUES (?, ?)");
+            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("INSERT INTO tokens (user_id, token) VALUES (?, ?) RETURNING token_id");
             preparedStatement.setInt(1, userId);
             preparedStatement.setString(2, token);
-            preparedStatement.execute();
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if(!resultSet.next()) {
+                throw new InsertFailedException("Token could not be created");
+            }
+
+            return resultSet.getInt("token_id");
 
         } catch (SQLException e) {
             throw new DataAccessException("DataAccessException in saveToken: " + e);
         }
     }
-    public void checkForValidToken(String username, String token) {
+    public int checkForValidToken(String token) {
+        if(token == null) { // token is missing
+            throw new InvalidTokenException("Authentication information is missing or invalid");
+        }
+
         try {
-            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("SELECT * FROM tokens JOIN users ON tokens.user_id = users.user_id WHERE users.username = ? AND tokens.token = ?");
-            preparedStatement.setString(1, username);
-            preparedStatement.setString(2, token);
+            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("SELECT * FROM tokens JOIN users ON tokens.user_id = users.user_id WHERE tokens.token = ?");
+            preparedStatement.setString(1, token);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if(!resultSet.next()) { // token for this user is invalid
                 throw new InvalidTokenException("Authentication information is missing or invalid");
             }
+
+            return resultSet.getInt("user_id");
 
         } catch (SQLException e) {
             throw new DataAccessException("DataAccessException in isValidToken: " + e);

@@ -51,28 +51,46 @@ CREATE TABLE deck_card_quantities (
     PRIMARY KEY (deck_id, card_id)
 );
 
+CREATE TABLE packages (
+    package_id SERIAL,
+
+    PRIMARY KEY (package_id)
+);
+
+CREATE TABLE package_card_quantities (
+    package_id INTEGER NOT NULL,
+    card_id VARCHAR NOT NULL,
+    quantity INTEGER NULL,
+
+    PRIMARY KEY (package_id, card_id)
+);
+
 CREATE TABLE trading_deal (
     trading_deal_id VARCHAR NOT NULL,
     user_id INTEGER NOT NULL,
     card_id VARCHAR NOT NULL,
-    type VARCHAR NOT NULL,  /* requirement */
-    minimum_damage VARCHAR NOT NULL,    /* requirement */
+    type VARCHAR NOT NULL,
+    minimum_damage VARCHAR NOT NULL,
 
     PRIMARY KEY (trading_deal_id)
 );
 
 CREATE TABLE cards (
     card_id VARCHAR NOT NULL,
+    user_id INTEGER NULL,
     name VARCHAR NOT NULL,
     damage FLOAT NOT NULL,
-    category VARCHAR NOT NULL,   /* s... spell card, m... monster card */
-    element_type VARCHAR NOT NULL,   /* w... water, f... fire, n... normal */
 
     PRIMARY KEY (card_id)
 );
 
 ALTER TABLE tokens
     ADD CONSTRAINT user_id_fk_tokens
+        FOREIGN KEY (user_id)
+            REFERENCES users (user_id);
+
+ALTER TABLE cards
+    ADD CONSTRAINT user_id_fk_cards
         FOREIGN KEY (user_id)
             REFERENCES users (user_id);
 
@@ -115,3 +133,11 @@ ALTER TABLE deck_card_quantities
     ADD CONSTRAINT card_id_fk_deck_card_quantities
         FOREIGN KEY (card_id)
             REFERENCES cards (card_id);
+
+ALTER TABLE package_card_quantities
+    ADD CONSTRAINT card_id_fk_package_card_quantities
+        FOREIGN KEY (card_id)
+            REFERENCES cards (card_id);
+
+-- SELECT * FROM packages LIMIT 1;
+-- INSERT INTO packages (package_id) VALUES (DEFAULT);

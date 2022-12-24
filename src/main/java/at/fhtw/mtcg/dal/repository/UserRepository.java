@@ -1,6 +1,7 @@
 package at.fhtw.mtcg.dal.repository;
 
 import at.fhtw.mtcg.exception.DataNotFoundException;
+import at.fhtw.mtcg.exception.InsertFailedException;
 import at.fhtw.mtcg.exception.PrimaryKeyAlreadyExistsException;
 import at.fhtw.mtcg.exception.DataAccessException;
 import at.fhtw.mtcg.dal.UnitOfWork;
@@ -20,8 +21,7 @@ public class UserRepository {
         try {
             PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("SELECT * FROM users WHERE username = ?");
             preparedStatement.setString(1, username);
-            preparedStatement.executeQuery();
-            ResultSet resultSet = preparedStatement.getResultSet();
+            ResultSet resultSet = preparedStatement.executeQuery();
 
             if (!resultSet.next()) {
                 throw new DataNotFoundException("User not found.");
@@ -36,6 +36,25 @@ public class UserRepository {
 
         catch(SQLException e) {
             throw new DataAccessException("DataAccessException in getUserData: " + e);
+        }
+    }
+    public int getUserId(String username) {
+        try {
+            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("SELECT * FROM users WHERE username = ?");
+            preparedStatement.setString(1, username);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (!resultSet.next()) {
+                throw new DataNotFoundException("User not found.");
+            }
+
+            int userId = resultSet.getInt("user_id");
+
+            return userId;
+        }
+
+        catch(SQLException e) {
+            throw new DataAccessException("DataAccessException in getUserId: " + e);
         }
     }
     public void updateUserData(String username, UserData userData) {
@@ -60,12 +79,18 @@ public class UserRepository {
     }
 
     // post /users
-    public void addUser(UserCredentials userCredentials) {
+    public int createUser(UserCredentials userCredentials) {
         try {
-            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("INSERT INTO users (username, password) VALUES (?, ?)");
+            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("INSERT INTO users (username, password) VALUES (?, ?) RETURNING user_id");
             preparedStatement.setString(1, userCredentials.getUsername());
             preparedStatement.setString(2, userCredentials.getPassword());
-            preparedStatement.execute();
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if(!resultSet.next()) {
+                throw new InsertFailedException("User could not be created");
+            }
+
+            return resultSet.getInt("user_id");
         }
 
         catch(SQLException e) {
@@ -73,7 +98,7 @@ public class UserRepository {
                 throw new PrimaryKeyAlreadyExistsException("User with same username already registered");
             }
 
-            throw new DataAccessException("DataAccessException in addUser: " + e);
+            throw new DataAccessException("DataAccessException in createUser: " + e);
         }
     }
 }

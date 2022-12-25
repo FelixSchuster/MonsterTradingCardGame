@@ -1,10 +1,7 @@
 package at.fhtw.mtcg.dal.repository;
 
 import at.fhtw.mtcg.dal.UnitOfWork;
-import at.fhtw.mtcg.exception.DataAccessException;
-import at.fhtw.mtcg.exception.DataNotFoundException;
-import at.fhtw.mtcg.exception.InsertFailedException;
-import at.fhtw.mtcg.exception.InvalidTokenException;
+import at.fhtw.mtcg.exception.*;
 import at.fhtw.mtcg.model.UserCredentials;
 
 import java.sql.PreparedStatement;
@@ -24,7 +21,7 @@ public class SessionRepository {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if(!resultSet.next()) { // user does not exist
-                throw new DataNotFoundException("Invalid username/password provided");
+                throw new InvalidCredentialsException("Invalid username/password provided");
             }
 
             return resultSet.getInt("user_id");

@@ -6,9 +6,10 @@ Datum,Startzeit,Endzeit,Aufgabe
 2022-11-20,21:00,23:59,User Service
 2022-11-21,00:00,02:15,User Service
 2022-11-21,10:15,15:00,User Service
-2022-11-28,10:45,12:00,Database, Services, Models
-2022-11-29,13:00,16:00,Services, Models
+2022-11-28,10:45,12:00,Database; Services; Models
+2022-11-29,13:00,16:00,Services; Models
 2022-12-20,13:45,22:00,DAL
 2022-12-23,17:45,19:45,Package Service
 2022-12-23,22:45,23:59,Package Service
 2022-12-24,00:00,01:00,Package Service
+2022-12-25,10:00,,Transaction Service

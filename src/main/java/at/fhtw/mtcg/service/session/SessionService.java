@@ -1,6 +1,5 @@
 package at.fhtw.mtcg.service.session;
 
-import at.fhtw.mtcg.service.user.UserController;
 import at.fhtw.server.http.Method;
 import at.fhtw.server.server.Request;
 import at.fhtw.server.server.Response;

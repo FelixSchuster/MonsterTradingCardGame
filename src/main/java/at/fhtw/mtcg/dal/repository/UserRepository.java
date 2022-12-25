@@ -15,9 +15,7 @@ public class UserRepository {
     public UserRepository(UnitOfWork unitOfWork) {
         this.unitOfWork = unitOfWork;
     }
-
-    // get /users/{username}
-    public UserData getUserData(String username) {
+    public UserData getUserDataByUsername(String username) {
         try {
             PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("SELECT * FROM users WHERE username = ?");
             preparedStatement.setString(1, username);
@@ -38,7 +36,7 @@ public class UserRepository {
             throw new DataAccessException("DataAccessException in getUserData: " + e);
         }
     }
-    public int getUserId(String username) {
+    public int getUserIdByUsername(String username) {
         try {
             PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("SELECT * FROM users WHERE username = ?");
             preparedStatement.setString(1, username);
@@ -48,16 +46,14 @@ public class UserRepository {
                 throw new DataNotFoundException("User not found.");
             }
 
-            int userId = resultSet.getInt("user_id");
-
-            return userId;
+            return resultSet.getInt("user_id");
         }
 
         catch(SQLException e) {
             throw new DataAccessException("DataAccessException in getUserId: " + e);
         }
     }
-    public void updateUserData(String username, UserData userData) {
+    public void updateUserDataByUsername(String username, UserData userData) {
         int numberOfUpdatedRows = 0;
 
         try {
@@ -77,8 +73,41 @@ public class UserRepository {
             throw new DataNotFoundException("User not found.");
         }
     }
+    public int getCoinsByUserId(int userId) {
+        try {
+            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("SELECT * FROM users WHERE user_id = ?");
+            preparedStatement.setInt(1, userId);
+            ResultSet resultSet = preparedStatement.executeQuery();
 
-    // post /users
+            if (!resultSet.next()) {
+                throw new DataNotFoundException("User not found.");
+            }
+
+            return resultSet.getInt("coins");
+        }
+
+        catch(SQLException e) {
+            throw new DataAccessException("DataAccessException in getCoinsByUserId: " + e);
+        }
+    }
+    public void updateCoinsByUserId(int userId, int coins) {
+        int numberOfUpdatedRows = 0;
+
+        try {
+            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("UPDATE users SET coins = ? WHERE user_id = ?");
+            preparedStatement.setInt(1, coins);
+            preparedStatement.setInt(2, userId);
+            numberOfUpdatedRows = preparedStatement.executeUpdate();
+        }
+
+        catch(SQLException e) {
+            throw new DataAccessException("DataAccessException in updateCoinsByUserId: " + e);
+        }
+
+        if(numberOfUpdatedRows == 0) {
+            throw new DataNotFoundException("User not found.");
+        }
+    }
     public int createUser(UserCredentials userCredentials) {
         try {
             PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("INSERT INTO users (username, password) VALUES (?, ?) RETURNING user_id");

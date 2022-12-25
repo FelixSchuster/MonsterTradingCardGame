@@ -6,6 +6,7 @@ import at.fhtw.mtcg.dal.repository.SessionRepository;
 import at.fhtw.mtcg.exception.DataAccessException;
 import at.fhtw.mtcg.exception.DataNotFoundException;
 import at.fhtw.mtcg.exception.InsertFailedException;
+import at.fhtw.mtcg.exception.InvalidCredentialsException;
 import at.fhtw.mtcg.model.UserCredentials;
 import at.fhtw.server.http.ContentType;
 import at.fhtw.server.http.HttpStatus;
@@ -27,7 +28,7 @@ public class SessionController extends Controller {
             unitOfWork.commitTransaction();
             return new Response(HttpStatus.OK, ContentType.JSON, "{\"token\":\"" + token + "\"}");
 
-        } catch (DataNotFoundException e) {
+        } catch (InvalidCredentialsException e) {
             unitOfWork.rollbackTransaction();
             return new Response(HttpStatus.UNAUTHORIZED, ContentType.JSON, "{\"message\":\"Invalid username/password provided\"}");
 

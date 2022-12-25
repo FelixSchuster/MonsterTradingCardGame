@@ -26,11 +26,11 @@ public class UserController extends Controller {
         try {
             int userId = sessionRepository.checkForValidToken(token); // check for valid token
 
-            if(userId != userRepository.getUserId(username)) { // check if token matches given username
+            if(userId != userRepository.getUserIdByUsername(username)) { // check if token matches given username
                 throw new InvalidTokenException("Authentication information is missing or invalid");
             }
 
-            UserData userData = userRepository.getUserData(username);
+            UserData userData = userRepository.getUserDataByUsername(username);
             String userDataJSON = this.getObjectMapper().writeValueAsString(userData);
             unitOfWork.commitTransaction();
             return new Response(HttpStatus.OK, ContentType.JSON, userDataJSON);
@@ -71,12 +71,12 @@ public class UserController extends Controller {
         try {
             int userId = sessionRepository.checkForValidToken(token); // check for valid token
 
-            if(userId != userRepository.getUserId(username)) { // check if token matches given username
+            if(userId != userRepository.getUserIdByUsername(username)) { // check if token matches given username
                 throw new InvalidTokenException("Authentication information is missing or invalid");
             }
 
             UserData userData = this.getObjectMapper().readValue(request.getBody(), UserData.class);
-            userRepository.updateUserData(username, userData);
+            userRepository.updateUserDataByUsername(username, userData);
             unitOfWork.commitTransaction();
             return new Response(HttpStatus.CREATED, ContentType.JSON, "{\"message\":\"User successfully updated.\"}");
 

@@ -17,6 +17,9 @@ import at.fhtw.server.server.Request;
 import at.fhtw.server.server.Response;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PackageController extends Controller {
     public Response createPackage(Request request) {
         UnitOfWork unitOfWork = new UnitOfWork();
@@ -29,17 +32,24 @@ public class PackageController extends Controller {
         try {
             int userId = sessionRepository.checkForValidToken(token); // check for valid token
 
-            if(userId != userRepository.getUserId("admin")) { // check if token matches given username
+            if(userId != userRepository.getUserIdByUsername("admin")) { // check if token matches given username
                 throw new ForbiddenException("Provided user is not 'admin'");
             }
 
             Card cards[] = this.getObjectMapper().readValue(request.getBody(), Card[].class);
-            int packageId = packageRepository.createPackage();
 
-            // TODO: add relationship between card and package
+            int packageId = packageRepository.createPackage(); // create package
 
-            for (Card card : cards) {
-                cardRepository.createCard(card);
+            List<String> cardIds = new ArrayList<>();
+
+            for (Card card : cards) { // create Cards
+                String cardId = cardRepository.createCard(card);
+                System.out.println(cardId);
+                cardIds.add(cardId);
+            }
+
+            for(String cardId : cardIds) { // update packageId for newly created cards
+                cardRepository.updatePackageId(cardId, packageId);
             }
 
             unitOfWork.commitTransaction();

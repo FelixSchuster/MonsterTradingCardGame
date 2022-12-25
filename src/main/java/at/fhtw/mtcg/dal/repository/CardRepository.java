@@ -60,6 +60,8 @@ public class CardRepository {
         }
     }
     public List<String> getCardIdsByPackageId(int packageId) {
+        List<String> cardIds = new ArrayList<>();
+
         try {
             PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("SELECT * FROM cards WHERE package_id = ?");
             preparedStatement.setInt(1, packageId);
@@ -69,7 +71,6 @@ public class CardRepository {
                 throw new DataNotFoundException("Package not found.");
             }
 
-            List<String> cardIds = new ArrayList<>();
             cardIds.add(resultSet.getString("card_id"));
 
             while(resultSet.next()) {
@@ -218,6 +219,21 @@ public class CardRepository {
 
         catch(SQLException e) {
             throw new DataAccessException("DataAccessException in getCardsByUserId: " + e);
+        }
+    }
+    public int getAvailablePackageId() {
+        try {
+            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("SELECT * FROM cards WHERE user_id IS NULL LIMIT 1");
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if(!resultSet.next()) {
+                throw new DataNotFoundException("No card package available for buying");
+            }
+
+            return resultSet.getInt("package_id");
+
+        } catch (SQLException e) {
+            throw new DataAccessException("DataAccessException in getAvailablePackageId: " + e);
         }
     }
 }

@@ -12,12 +12,10 @@ import java.util.concurrent.Executors;
 public class Server {
     private int port;
     private Router router;
-
     public Server(int port, Router router) {
         this.port = port;
         this.router = router;
     }
-
     public void start() throws IOException {
         final ExecutorService executorService = Executors.newFixedThreadPool(10);
 

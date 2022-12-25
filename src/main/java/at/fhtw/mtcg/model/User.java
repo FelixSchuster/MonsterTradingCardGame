@@ -1,7 +1,6 @@
 package at.fhtw.mtcg.model;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
-
 public class User {
     @JsonAlias({"user_id"})
     private Integer user_id;
@@ -15,7 +14,6 @@ public class User {
     private Integer elo;
 
     // Jackson needs the default constructor
-
     public User() {}
     public User(Integer user_id, String name, String password, Integer coins, Integer elo) {
         this.user_id = user_id;

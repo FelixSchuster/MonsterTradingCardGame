@@ -12,10 +12,8 @@ public enum HttpStatus {
     CONFLICT(409, "Conflict"),
     INTERNAL_SERVER_ERROR(500, "Internal Server Error"),
     NOT_IMPLEMENTED(501, "Not Implemented");
-
     public final int code;
     public final String message;
-
     HttpStatus(int code, String message) {
         this.code = code;
         this.message = message;

@@ -1,0 +1,174 @@
+{
+	"info": {
+		"_postman_id": "ea625e23-215f-49f7-974d-bddaf1996d06",
+		"name": "MonsterTradingCardGame",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "127.0.0.1:10001/users",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Username\": \"kienboec\",\r\n  \"Password\": \"daniel\"\r\n}"
+						},
+						"url": {
+							"raw": "127.0.0.1:10001/users",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "10001",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:10001/users/kienboec",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic kienboec-mtcgToken",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "127.0.0.1:10001/users/kienboec",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "10001",
+							"path": [
+								"users",
+								"kienboec"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:10001/users/kienboec",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic kienboec-mtcgToken",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Name\": \"Hoax\",\r\n  \"Bio\": \"me playin...\",\r\n  \"Image\": \":-)\"\r\n}"
+						},
+						"url": {
+							"raw": "127.0.0.1:10001/users/kienboec",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "10001",
+							"path": [
+								"users",
+								"kienboec"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sessions",
+			"item": [
+				{
+					"name": "127.0.0.1:10001/sessions",
+					"request": {
+						"auth": {
+							"type": "basic"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Username\": \"kienboec\",\r\n  \"Password\": \"daniel\"\r\n}"
+						},
+						"url": {
+							"raw": "127.0.0.1:10001/sessions",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "10001",
+							"path": [
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Packages",
+			"item": [
+				{
+					"name": "127.0.0.1:10001/packages",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic admin-mtcgToken",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  {\r\n    \"Id\":\"845f0dc7-37d0-426e-994e-43fc3ac83c08\",\r\n    \"Name\":\"WaterGoblin\",\r\n    \"Damage\": 10.0\r\n  },\r\n  {\r\n    \"Id\":\"99f8f8dc-e25e-4a95-aa2c-782823f36e2a\",\r\n    \"Name\":\"Dragon\",\r\n    \"Damage\": 50.0\r\n  },\r\n  {\r\n    \"Id\":\"e85e3976-7c86-4d06-9a80-641c2019a79f\",\r\n    \"Name\":\"WaterSpell\",\r\n    \"Damage\": 20.0\r\n  },\r\n  {\r\n    \"Id\":\"1cb6ab86-bdb2-47e5-b6e4-68c5ab389334\",\r\n    \"Name\":\"Ork\",\r\n    \"Damage\": 45.0\r\n  },\r\n  {\r\n    \"Id\":\"dfdd758f-649c-40f9-ba3a-8657f4b3439f\",\r\n    \"Name\":\"FireSpell\",\r\n    \"Damage\": 25.0\r\n  }\r\n]"
+						},
+						"url": {
+							"raw": "127.0.0.1:10001/packages",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "10001",
+							"path": [
+								"packages"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

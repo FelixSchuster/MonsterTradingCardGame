@@ -62,7 +62,7 @@ public class TransactionController extends Controller {
             return new Response(HttpStatus.FORBIDDEN, ContentType.JSON, "{\"message\":\"Not enough money for buying a card package\"}");
 
         } catch (Exception e) {
-            e.printStackTrace();
+            // e.printStackTrace();
         }
 
         unitOfWork.rollbackTransaction();

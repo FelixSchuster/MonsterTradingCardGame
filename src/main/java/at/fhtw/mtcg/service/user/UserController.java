@@ -32,6 +32,7 @@ public class UserController extends Controller {
 
             UserData userData = userRepository.getUserDataByUsername(username);
             String userDataJSON = this.getObjectMapper().writeValueAsString(userData);
+
             unitOfWork.commitTransaction();
             return new Response(HttpStatus.OK, ContentType.JSON, userDataJSON);
 
@@ -77,6 +78,7 @@ public class UserController extends Controller {
 
             UserData userData = this.getObjectMapper().readValue(request.getBody(), UserData.class);
             userRepository.updateUserDataByUsername(username, userData);
+
             unitOfWork.commitTransaction();
             return new Response(HttpStatus.CREATED, ContentType.JSON, "{\"message\":\"User successfully updated.\"}");
 
@@ -115,6 +117,7 @@ public class UserController extends Controller {
         try {
             UserCredentials userCredentials = this.getObjectMapper().readValue(request.getBody(), UserCredentials.class);
             userRepository.createUser(userCredentials);
+
             unitOfWork.commitTransaction();
             return new Response(HttpStatus.CREATED, ContentType.JSON, "{\"message\":\"User successfully created\"}");
 

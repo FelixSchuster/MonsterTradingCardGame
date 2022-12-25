@@ -6,6 +6,7 @@ import at.fhtw.mtcg.exception.DataNotFoundException;
 import at.fhtw.mtcg.exception.InsertFailedException;
 import at.fhtw.mtcg.exception.PrimaryKeyAlreadyExistsException;
 import at.fhtw.mtcg.model.Card;
+import at.fhtw.mtcg.model.UserData;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -98,6 +99,39 @@ public class CardRepository {
 
         if(numberOfUpdatedRows == 0) {
             throw new DataNotFoundException("Package not found.");
+        }
+    }
+    public List<Card> getCardsByUserId(int userId) {
+        List<Card> cards = new ArrayList<>();
+
+        try {
+            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("SELECT * FROM cards WHERE user_id = ?");
+            preparedStatement.setInt(1, userId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (!resultSet.next()) {
+                throw new DataNotFoundException("The request was fine, but the user doesn't have any cards");
+            }
+
+            String cardId = resultSet.getString("card_id");
+            String name = resultSet.getString("name");
+            Float damage = resultSet.getFloat("damage");
+
+            cards.add(new Card(cardId, name, damage));
+
+            while(resultSet.next()) {
+                cardId = resultSet.getString("card_id");
+                name = resultSet.getString("name");
+                damage = resultSet.getFloat("damage");
+
+                cards.add(new Card(cardId, name, damage));
+            }
+
+            return cards;
+        }
+
+        catch(SQLException e) {
+            throw new DataAccessException("DataAccessException in getCardsByUserId: " + e);
         }
     }
 }

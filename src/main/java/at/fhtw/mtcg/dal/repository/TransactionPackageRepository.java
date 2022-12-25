@@ -18,7 +18,7 @@ public class TransactionPackageRepository {
             PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("SELECT * FROM cards WHERE user_id IS NULL LIMIT 1");
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            if(!resultSet.next()) { // user does not exist
+            if(!resultSet.next()) {
                 throw new DataNotFoundException("No card package available for buying");
             }
 

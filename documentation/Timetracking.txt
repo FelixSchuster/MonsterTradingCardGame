@@ -12,4 +12,5 @@ Datum,Startzeit,Endzeit,Aufgabe
 2022-12-23,17:45,19:45,Package Service
 2022-12-23,22:45,23:59,Package Service
 2022-12-24,00:00,01:00,Package Service
-2022-12-25,10:00,,Transaction Service
+2022-12-25,10:00,14:30,Transaction Service
+2022-12-25,14:30,15:30,Card Service

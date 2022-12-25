@@ -44,7 +44,6 @@ public class PackageController extends Controller {
 
             for (Card card : cards) { // create Cards
                 String cardId = cardRepository.createCard(card);
-                System.out.println(cardId);
                 cardIds.add(cardId);
             }
 

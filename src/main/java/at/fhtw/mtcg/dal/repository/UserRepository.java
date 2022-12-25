@@ -33,7 +33,7 @@ public class UserRepository {
         }
 
         catch(SQLException e) {
-            throw new DataAccessException("DataAccessException in getUserData: " + e);
+            throw new DataAccessException("DataAccessException in getUserDataByUsername: " + e);
         }
     }
     public int getUserIdByUsername(String username) {

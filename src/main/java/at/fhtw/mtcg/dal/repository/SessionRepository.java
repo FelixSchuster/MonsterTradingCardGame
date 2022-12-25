@@ -20,14 +20,14 @@ public class SessionRepository {
             preparedStatement.setString(2, userCredentials.getPassword());
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            if(!resultSet.next()) { // user does not exist
+            if(!resultSet.next()) {
                 throw new InvalidCredentialsException("Invalid username/password provided");
             }
 
             return resultSet.getInt("user_id");
 
         } catch (SQLException e) {
-            throw new DataAccessException("DataAccessException in isValidCredentials: " + e);
+            throw new DataAccessException("DataAccessException in checkForValidCredentials: " + e);
         }
     }
     public int createToken(Integer userId, String token) {
@@ -44,7 +44,7 @@ public class SessionRepository {
             return resultSet.getInt("token_id");
 
         } catch (SQLException e) {
-            throw new DataAccessException("DataAccessException in saveToken: " + e);
+            throw new DataAccessException("DataAccessException in createToken: " + e);
         }
     }
     public int checkForValidToken(String token) {
@@ -64,7 +64,7 @@ public class SessionRepository {
             return resultSet.getInt("user_id");
 
         } catch (SQLException e) {
-            throw new DataAccessException("DataAccessException in isValidToken: " + e);
+            throw new DataAccessException("DataAccessException in checkForValidToken: " + e);
         }
     }
 }

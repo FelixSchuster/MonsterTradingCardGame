@@ -4,7 +4,6 @@ import at.fhtw.mtcg.controller.Controller;
 import at.fhtw.mtcg.dal.UnitOfWork;
 import at.fhtw.mtcg.dal.repository.SessionRepository;
 import at.fhtw.mtcg.exception.DataAccessException;
-import at.fhtw.mtcg.exception.DataNotFoundException;
 import at.fhtw.mtcg.exception.InsertFailedException;
 import at.fhtw.mtcg.exception.InvalidCredentialsException;
 import at.fhtw.mtcg.model.UserCredentials;

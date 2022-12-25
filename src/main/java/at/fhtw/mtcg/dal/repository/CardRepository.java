@@ -6,7 +6,6 @@ import at.fhtw.mtcg.exception.DataNotFoundException;
 import at.fhtw.mtcg.exception.InsertFailedException;
 import at.fhtw.mtcg.exception.PrimaryKeyAlreadyExistsException;
 import at.fhtw.mtcg.model.Card;
-import at.fhtw.mtcg.model.UserData;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -98,7 +97,7 @@ public class CardRepository {
         }
 
         if(numberOfUpdatedRows == 0) {
-            throw new DataNotFoundException("Package not found.");
+            throw new DataNotFoundException("Card not found.");
         }
     }
     public List<Card> getCardsByUserId(int userId) {
@@ -132,6 +131,59 @@ public class CardRepository {
 
         catch(SQLException e) {
             throw new DataAccessException("DataAccessException in getCardsByUserId: " + e);
+        }
+    }
+    public int getUserIdByCardId(String cardId) {
+        try {
+            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("SELECT * FROM cards WHERE card_id = ?");
+            preparedStatement.setString(1, cardId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (!resultSet.next()) {
+                throw new DataNotFoundException("Card not found.");
+            }
+
+            return resultSet.getInt("user_id");
+        }
+
+        catch(SQLException e) {
+            throw new DataAccessException("DataAccessException in getUserIdByCardId: " + e);
+        }
+    }
+    public void updateDeckIdByCardId(String cardId, int deckId) {
+        int numberOfUpdatedRows = 0;
+
+        try {
+            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("UPDATE cards SET deck_id = ? WHERE card_id = ?");
+            preparedStatement.setInt(1, deckId);
+            preparedStatement.setString(2, cardId);
+            numberOfUpdatedRows = preparedStatement.executeUpdate();
+        }
+
+        catch(SQLException e) {
+            throw new DataAccessException("DataAccessException in updateDeckIdByCardId: " + e);
+        }
+
+        if(numberOfUpdatedRows == 0) {
+            throw new DataNotFoundException("Card not found.");
+        }
+    }
+    public void resetDeckIds(int userId, int deckId) {
+        int numberOfUpdatedRows = 0;
+
+        try {
+            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("UPDATE cards SET deck_id = NULL WHERE user_id = ? AND deck_id = ?");
+            preparedStatement.setInt(1, userId);
+            preparedStatement.setInt(2, deckId);
+            numberOfUpdatedRows = preparedStatement.executeUpdate();
+        }
+
+        catch(SQLException e) {
+            throw new DataAccessException("DataAccessException in resetDeckIds: " + e);
+        }
+
+        if(numberOfUpdatedRows == 0) {
+            throw new DataNotFoundException("Card not found.");
         }
     }
 }

@@ -23,14 +23,12 @@ CREATE TABLE tokens (
 
 CREATE TABLE stacks (
     stack_id SERIAL,
-    user_id INTEGER NOT NULL,
 
     PRIMARY KEY (stack_id)
 );
 
 CREATE TABLE decks (
     deck_id SERIAL,
-    user_id INTEGER NOT NULL,
 
     PRIMARY KEY (deck_id)
 );
@@ -97,16 +95,3 @@ ALTER TABLE trading_deal
     ADD CONSTRAINT card_id_fk_trading_deal
         FOREIGN KEY (card_id)
             REFERENCES cards (card_id);
-
-ALTER TABLE stacks
-    ADD CONSTRAINT user_id_fk_stacks
-        FOREIGN KEY (user_id)
-            REFERENCES users (user_id);
-
-ALTER TABLE decks
-    ADD CONSTRAINT user_id_fk_decks
-        FOREIGN KEY (user_id)
-            REFERENCES users (user_id);
-
--- SELECT * FROM packages LIMIT 1;
--- INSERT INTO packages (package_id) VALUES (DEFAULT);

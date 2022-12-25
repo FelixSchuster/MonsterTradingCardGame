@@ -1,8 +1,8 @@
 package at.fhtw;
 
-import at.fhtw.mtcg.model.Card;
 import at.fhtw.mtcg.service._package.PackageService;
 import at.fhtw.mtcg.service.card.CardService;
+import at.fhtw.mtcg.service.deck.DeckService;
 import at.fhtw.mtcg.service.session.SessionService;
 import at.fhtw.mtcg.service.transaction.TransactionService;
 import at.fhtw.mtcg.service.user.UserService;
@@ -31,6 +31,7 @@ public class Main {
         router.addService("/packages", new PackageService());
         router.addService("/transactions", new TransactionService());
         router.addService("/cards", new CardService());
+        router.addService("/deck", new DeckService());
 
         return router;
     }

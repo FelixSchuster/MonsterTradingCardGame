@@ -3,19 +3,18 @@ package at.fhtw.mtcg.service.card;
 import at.fhtw.mtcg.controller.Controller;
 import at.fhtw.mtcg.dal.UnitOfWork;
 import at.fhtw.mtcg.dal.repository.CardRepository;
+import at.fhtw.mtcg.dal.repository.DeckRepository;
 import at.fhtw.mtcg.dal.repository.SessionRepository;
 import at.fhtw.mtcg.exception.DataAccessException;
 import at.fhtw.mtcg.exception.DataNotFoundException;
 import at.fhtw.mtcg.exception.InvalidTokenException;
 import at.fhtw.mtcg.model.Card;
-import at.fhtw.mtcg.model.UserData;
 import at.fhtw.server.http.ContentType;
 import at.fhtw.server.http.HttpStatus;
 import at.fhtw.server.server.Request;
 import at.fhtw.server.server.Response;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CardController extends Controller {

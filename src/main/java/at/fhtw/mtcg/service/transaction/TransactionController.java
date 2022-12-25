@@ -9,7 +9,6 @@ import at.fhtw.mtcg.dal.repository.UserRepository;
 import at.fhtw.mtcg.exception.DataNotFoundException;
 import at.fhtw.mtcg.exception.InvalidTokenException;
 import at.fhtw.mtcg.exception.NotEnoughCoinsException;
-import at.fhtw.mtcg.model.User;
 import at.fhtw.server.http.ContentType;
 import at.fhtw.server.http.HttpStatus;
 import at.fhtw.server.server.Request;

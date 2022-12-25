@@ -6,6 +6,7 @@ import at.fhtw.mtcg.exception.DataNotFoundException;
 import at.fhtw.mtcg.exception.InsertFailedException;
 import at.fhtw.mtcg.exception.PrimaryKeyAlreadyExistsException;
 import at.fhtw.mtcg.model.Card;
+import com.sun.security.jgss.GSSUtil;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -172,7 +173,7 @@ public class CardRepository {
         int numberOfUpdatedRows = 0;
 
         try {
-            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("UPDATE cards SET deck_id = NULL WHERE user_id = ? AND deck_id = ?");
+            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("UPDATE cards SET deck_id = NULL WHERE user_id = ? AND deck_id != ?");
             preparedStatement.setInt(1, userId);
             preparedStatement.setInt(2, deckId);
             numberOfUpdatedRows = preparedStatement.executeUpdate();
@@ -182,8 +183,41 @@ public class CardRepository {
             throw new DataAccessException("DataAccessException in resetDeckIds: " + e);
         }
 
-        if(numberOfUpdatedRows == 0) {
-            throw new DataNotFoundException("Card not found.");
+        if(numberOfUpdatedRows == 0) { // do nothing to prevent rollback!
+            // throw new DataNotFoundException("Card not found.");
+        }
+    }
+    public List<Card> getCardsInDeckByUserId(int userId) {
+        List<Card> cards = new ArrayList<>();
+
+        try {
+            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("SELECT * FROM cards WHERE user_id = ? AND deck_id IS NOT NULL");
+            preparedStatement.setInt(1, userId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (!resultSet.next()) {
+                throw new DataNotFoundException("The request was fine, but the user doesn't have any cards");
+            }
+
+            String cardId = resultSet.getString("card_id");
+            String name = resultSet.getString("name");
+            Float damage = resultSet.getFloat("damage");
+
+            cards.add(new Card(cardId, name, damage));
+
+            while(resultSet.next()) {
+                cardId = resultSet.getString("card_id");
+                name = resultSet.getString("name");
+                damage = resultSet.getFloat("damage");
+
+                cards.add(new Card(cardId, name, damage));
+            }
+
+            return cards;
+        }
+
+        catch(SQLException e) {
+            throw new DataAccessException("DataAccessException in getCardsByUserId: " + e);
         }
     }
 }

@@ -4,23 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c41f9cc9-d6bc-4197-a30a-3817a529b5a0" name="Changes" comment="update deck repository">
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/service/scoreboard/ScoreboardController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/service/scoreboard/ScoreboardService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/service/stats/StatsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/service/stats/StatsService.java" afterDir="false" />
+    <list default="true" id="c41f9cc9-d6bc-4197-a30a-3817a529b5a0" name="Changes" comment="add stats service, scoreboard service">
+      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/service/battle/BattleController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/service/battle/BattleService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/Timetracking.txt" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/Timetracking.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/EntityRelationshipDiagram.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/database/EntityRelationshipDiagram.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/EntityRelationshipDiagram.drawio.png" beforeDir="false" afterPath="$PROJECT_DIR$/database/EntityRelationshipDiagram.drawio.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/specification/Checklist.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/specification/Checklist.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/dal/repository/CardRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/dal/repository/CardRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/dal/repository/TransactionPackageRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/dal/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/dal/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/service/transaction/TransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/service/transaction/TransactionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/fhtw/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/mtcg/dal/repository/CardRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/fhtw/mtcg/dal/repository/CardRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/mtcg/dal/repository/TransactionPackageRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/mtcg/dal/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/fhtw/mtcg/dal/repository/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/mtcg/service/transaction/TransactionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/fhtw/mtcg/service/transaction/TransactionController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,26 +59,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "full.screen.before.presentation.mode": "false",
-    "last_directory_selection": "Z:/Technikum/SWEN/Server/http-server/src/main/java/at/fhtw",
-    "last_opened_file_path": "C:/Users/Felix/OneDrive - FH Technikum Wien/BIF/3_Semester/SWEN1/Projekte/semester_projekt_Bea/SWEN1_MTCG",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
+    &quot;last_directory_selection&quot;: &quot;Z:/Technikum/SWEN/Server/http-server/src/main/java/at/fhtw&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Felix/OneDrive - FH Technikum Wien/BIF/3_Semester/SWEN1/Projekte/semester_projekt_Bea/SWEN1_MTCG&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\edin\Workspaces\Swen1Projects\http-server\src\test\java" />
@@ -214,7 +205,8 @@
       <workItem from="1671813782374" duration="6118000" />
       <workItem from="1671831856704" duration="8591000" />
       <workItem from="1671965154466" duration="12418000" />
-      <workItem from="1671995061378" duration="12478000" />
+      <workItem from="1671995061378" duration="13058000" />
+      <workItem from="1672044279735" duration="887000" />
     </task>
     <task id="LOCAL-00001" summary="added user service">
       <created>1668993353729</created>
@@ -286,7 +278,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672004896576</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="add stats service, scoreboard service">
+      <created>1672007828875</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1672007828875</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -312,7 +311,8 @@
     <MESSAGE value="update transaction service" />
     <MESSAGE value="update card service" />
     <MESSAGE value="update deck repository" />
-    <option name="LAST_COMMIT_MESSAGE" value="update deck repository" />
+    <MESSAGE value="add stats service, scoreboard service" />
+    <option name="LAST_COMMIT_MESSAGE" value="add stats service, scoreboard service" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

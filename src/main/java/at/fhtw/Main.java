@@ -1,6 +1,7 @@
 package at.fhtw;
 
 import at.fhtw.mtcg.service._package.PackageService;
+import at.fhtw.mtcg.service.battle.BattleService;
 import at.fhtw.mtcg.service.card.CardService;
 import at.fhtw.mtcg.service.deck.DeckService;
 import at.fhtw.mtcg.service.scoreboard.ScoreboardService;
@@ -37,6 +38,7 @@ public class Main {
         router.addService("/deck", new DeckService());
         router.addService("/stats", new StatsService());
         router.addService("/score", new ScoreboardService());
+        router.addService("/battle", new BattleService());
 
         return router;
     }

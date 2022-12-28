@@ -84,6 +84,31 @@ public class CardRepository {
             throw new DataAccessException("DataAccessException in getCardIdsByPackageId: " + e);
         }
     }
+    public List<String> getCardIdsByDeckId(int deckId) {
+        List<String> cardIds = new ArrayList<>();
+
+        try {
+            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("SELECT * FROM cards WHERE deck_id = ?");
+            preparedStatement.setInt(1, deckId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (!resultSet.next()) {
+                throw new DataNotFoundException("Deck not found.");
+            }
+
+            cardIds.add(resultSet.getString("card_id"));
+
+            while(resultSet.next()) {
+                cardIds.add(resultSet.getString("card_id"));
+            }
+
+            return cardIds;
+        }
+
+        catch(SQLException e) {
+            throw new DataAccessException("DataAccessException in getCardIdsByPackageId: " + e);
+        }
+    }
     public void updateUserIdByCardId(String cardId, int userId) {
         int numberOfUpdatedRows = 0;
 
@@ -234,6 +259,43 @@ public class CardRepository {
 
         } catch (SQLException e) {
             throw new DataAccessException("DataAccessException in getAvailablePackageId: " + e);
+        }
+    }
+    public Card getCardByCardId(String cardId) {
+        try {
+            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("SELECT * FROM cards WHERE card_id = ?");
+            preparedStatement.setString(1, cardId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (!resultSet.next()) {
+                throw new DataNotFoundException("Card not found.");
+            }
+
+            String name = resultSet.getString("name");
+            Float damage = resultSet.getFloat("damage");
+
+            return new Card(cardId, name, damage);
+        }
+
+        catch(SQLException e) {
+            throw new DataAccessException("DataAccessException in getCardByCardId: " + e);
+        }
+    }
+    public int getUserIdByDeckId(int deckId) {
+        try {
+            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("SELECT * FROM cards WHERE deck_id = ?");
+            preparedStatement.setInt(1, deckId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (!resultSet.next()) {
+                throw new DataNotFoundException("Deck not found.");
+            }
+
+            return resultSet.getInt("user_id");
+        }
+
+        catch(SQLException e) {
+            throw new DataAccessException("DataAccessException in getUserIdByDeckId: " + e);
         }
     }
 }

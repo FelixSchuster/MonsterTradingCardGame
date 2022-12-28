@@ -38,7 +38,7 @@ public class Main {
         router.addService("/deck", new DeckService());
         router.addService("/stats", new StatsService());
         router.addService("/score", new ScoreboardService());
-        router.addService("/battle", new BattleService());
+        router.addService("/battles", new BattleService());
 
         return router;
     }

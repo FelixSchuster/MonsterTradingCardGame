@@ -41,6 +41,27 @@ public class UserRepository {
             throw new DataAccessException("DataAccessException in getUserDataByUsername: " + e);
         }
     }
+    public UserData getUserDataByUserId(int userId) {
+        try {
+            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("SELECT * FROM users WHERE user_id = ?");
+            preparedStatement.setInt(1, userId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (!resultSet.next()) {
+                throw new DataNotFoundException("User not found.");
+            }
+
+            String name = resultSet.getString("name");
+            String bio = resultSet.getString("bio");
+            String image = resultSet.getString("image");
+
+            return new UserData(name, bio, image);
+        }
+
+        catch(SQLException e) {
+            throw new DataAccessException("DataAccessException in getUserDataByUsername: " + e);
+        }
+    }
     public int getUserIdByUsername(String username) {
         try {
             PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("SELECT * FROM users WHERE username = ?");

@@ -41,7 +41,6 @@ CREATE TABLE packages (
 
 CREATE TABLE trading_deal (
     trading_deal_id VARCHAR NOT NULL,
-    user_id INTEGER NOT NULL,
     card_id VARCHAR NOT NULL,
     type VARCHAR NOT NULL,
     minimum_damage VARCHAR NOT NULL,
@@ -59,6 +58,22 @@ CREATE TABLE cards (
     damage FLOAT NOT NULL,
 
     PRIMARY KEY (card_id)
+);
+
+CREATE TABLE battles (
+    battle_id SERIAL,
+    deck_1_id INTEGER NULL,
+    deck_2_id INTEGER NULL,
+
+    PRIMARY KEY (battle_id)
+);
+
+CREATE TABLE battle_logs (
+    battle_log_id SERIAL,
+    battle_id INTEGER NOT NULL,
+    log VARCHAR NOT NULL,
+
+    PRIMARY KEY (battle_log_id)
 );
 
 ALTER TABLE tokens
@@ -87,11 +102,21 @@ ALTER TABLE cards
             REFERENCES stacks (stack_id);
 
 ALTER TABLE trading_deal
-    ADD CONSTRAINT user_id_fk_trading_deal
-        FOREIGN KEY (user_id)
-            REFERENCES users (user_id);
-
-ALTER TABLE trading_deal
     ADD CONSTRAINT card_id_fk_trading_deal
         FOREIGN KEY (card_id)
             REFERENCES cards (card_id);
+
+ALTER TABLE battles
+    ADD CONSTRAINT deck_id_1_fk_battles
+        FOREIGN KEY (deck_1_id)
+            REFERENCES decks (deck_id);
+
+ALTER TABLE battles
+    ADD CONSTRAINT deck_id_2_fk_battles
+        FOREIGN KEY (deck_2_id)
+            REFERENCES decks (deck_id);
+
+ALTER TABLE battle_logs
+    ADD CONSTRAINT battle_id_fk_battle_logs
+        FOREIGN KEY (battle_id)
+            REFERENCES battles (battle_id);

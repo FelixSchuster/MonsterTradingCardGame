@@ -167,6 +167,182 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "127.0.0.1:10001/transactions/packages",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic kienboec-mtcgToken",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "127.0.0.1:10001/transactions/packages",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "10001",
+							"path": [
+								"transactions",
+								"packages"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cards",
+			"item": [
+				{
+					"name": "127.0.0.1:10001/cards",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic kienboec-mtcgToken",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "127.0.0.1:10001/cards",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "10001",
+							"path": [
+								"cards"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Decks",
+			"item": [
+				{
+					"name": "127.0.0.1:10001/deck",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic kienboec-mtcgToken",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n  \"845f0dc7-37d0-426e-994e-43fc3ac83c08\",\r\n  \"99f8f8dc-e25e-4a95-aa2c-782823f36e2a\",\r\n  \"e85e3976-7c86-4d06-9a80-641c2019a79f\",\r\n  \"171f6076-4eb5-4a7d-b3f2-2d650cc3d237\"\r\n]\r\n"
+						},
+						"url": {
+							"raw": "127.0.0.1:10001/deck",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "10001",
+							"path": [
+								"deck"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:10001/deck",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:10001/deck",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "10001",
+							"path": [
+								"deck"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Battle",
+			"item": [
+				{
+					"name": "127.0.0.1:10001/stats",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic kienboec-mtcgToken",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "127.0.0.1:10001/stats",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "10001",
+							"path": [
+								"stats"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "127.0.0.1:10001/score",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Basic kienboec-mtcgToken",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "127.0.0.1:10001/score",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "10001",
+							"path": [
+								"score"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}

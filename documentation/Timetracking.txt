@@ -14,3 +14,8 @@ Datum,Startzeit,Endzeit,Aufgabe
 2022-12-24,00:00,01:00,Package Service
 2022-12-25,10:00,14:30,Transaction Service
 2022-12-25,14:30,15:30,Card Service
+2022-12-25,20:00,21:45,Deck Repository; Stats Service; Scoreboard Service
+2022-12-26,10:00,11:00,Battle Service
+2022-12-27,13:45,15:30,Battle Service
+2022-12-28,11:30,14:30,Battle Service
+2022-12-28,18:30,22:15,Battle Service; Trading Service

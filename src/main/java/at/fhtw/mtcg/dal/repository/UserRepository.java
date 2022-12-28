@@ -7,9 +7,14 @@ import at.fhtw.mtcg.exception.DataAccessException;
 import at.fhtw.mtcg.dal.UnitOfWork;
 import at.fhtw.mtcg.model.UserCredentials;
 import at.fhtw.mtcg.model.UserData;
+import at.fhtw.mtcg.model.UserStats;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 public class UserRepository {
     private UnitOfWork unitOfWork;
     public UserRepository(UnitOfWork unitOfWork) {
@@ -19,6 +24,27 @@ public class UserRepository {
         try {
             PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("SELECT * FROM users WHERE username = ?");
             preparedStatement.setString(1, username);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (!resultSet.next()) {
+                throw new DataNotFoundException("User not found.");
+            }
+
+            String name = resultSet.getString("name");
+            String bio = resultSet.getString("bio");
+            String image = resultSet.getString("image");
+
+            return new UserData(name, bio, image);
+        }
+
+        catch(SQLException e) {
+            throw new DataAccessException("DataAccessException in getUserDataByUsername: " + e);
+        }
+    }
+    public UserData getUserDataByUserId(int userId) {
+        try {
+            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("SELECT * FROM users WHERE user_id = ?");
+            preparedStatement.setInt(1, userId);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if (!resultSet.next()) {
@@ -128,6 +154,83 @@ public class UserRepository {
             }
 
             throw new DataAccessException("DataAccessException in createUser: " + e);
+        }
+    }
+    public UserStats getUserStatsByUserId(int userId) {
+        try {
+            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("SELECT * FROM users WHERE user_id = ?");
+            preparedStatement.setInt(1, userId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (!resultSet.next()) {
+                throw new DataNotFoundException("User not found.");
+            }
+
+            String name = resultSet.getString("name");
+            int elo = resultSet.getInt("elo");
+            int wins = resultSet.getInt("wins");
+            int losses = resultSet.getInt("losses");
+
+            return new UserStats(name, elo, wins, losses);
+        }
+
+        catch(SQLException e) {
+            throw new DataAccessException("DataAccessException in getUserStatsByUserId: " + e);
+        }
+    }
+    public void updateUserStatsByUserId(int userId, UserStats userStats) {
+        int numberOfUpdatedRows = 0;
+
+        try {
+            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("UPDATE users SET name = ?, elo = ?, wins = ?, losses = ? WHERE user_id = ?");
+            preparedStatement.setString(1, userStats.getName());
+            preparedStatement.setInt(2, userStats.getElo());
+            preparedStatement.setInt(3, userStats.getWins());
+            preparedStatement.setInt(4, userStats.getLosses());
+            preparedStatement.setInt(5, userId);
+            numberOfUpdatedRows = preparedStatement.executeUpdate();
+        }
+
+        catch(SQLException e) {
+            throw new DataAccessException("DataAccessException in updateUserStatsByUserId: " + e);
+        }
+
+        if(numberOfUpdatedRows == 0) {
+            throw new DataNotFoundException("User not found.");
+        }
+    }
+    public List<UserStats> getUserStats() {
+        List<UserStats> userStats = new ArrayList<>();
+
+        try {
+            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("SELECT * FROM users ORDER BY elo DESC");
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (!resultSet.next()) {
+                throw new DataNotFoundException("No Users found.");
+            }
+
+            String name = resultSet.getString("name");
+            int elo = resultSet.getInt("elo");
+            int wins = resultSet.getInt("wins");
+            int losses = resultSet.getInt("losses");
+
+            userStats.add(new UserStats(name, elo, wins, losses));
+
+            while(resultSet.next()) {
+                name = resultSet.getString("name");
+                elo = resultSet.getInt("elo");
+                wins = resultSet.getInt("wins");
+                losses = resultSet.getInt("losses");
+
+                userStats.add(new UserStats(name, elo, wins, losses));
+            }
+
+            return userStats;
+        }
+
+        catch(SQLException e) {
+            throw new DataAccessException("DataAccessException in getUserStats: " + e);
         }
     }
 }

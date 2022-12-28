@@ -4,12 +4,10 @@ import at.fhtw.mtcg.controller.Controller;
 import at.fhtw.mtcg.dal.UnitOfWork;
 import at.fhtw.mtcg.dal.repository.CardRepository;
 import at.fhtw.mtcg.dal.repository.SessionRepository;
-import at.fhtw.mtcg.dal.repository.TransactionPackageRepository;
 import at.fhtw.mtcg.dal.repository.UserRepository;
 import at.fhtw.mtcg.exception.DataNotFoundException;
 import at.fhtw.mtcg.exception.InvalidTokenException;
 import at.fhtw.mtcg.exception.NotEnoughCoinsException;
-import at.fhtw.mtcg.model.User;
 import at.fhtw.server.http.ContentType;
 import at.fhtw.server.http.HttpStatus;
 import at.fhtw.server.server.Request;
@@ -20,7 +18,6 @@ import java.util.List;
 public class TransactionController extends Controller {
     public Response acquirePackage(Request request) {
         UnitOfWork unitOfWork = new UnitOfWork();
-        TransactionPackageRepository transactionPackageRepository = new TransactionPackageRepository(unitOfWork);
         SessionRepository sessionRepository = new SessionRepository(unitOfWork);
         CardRepository cardRepository = new CardRepository(unitOfWork);
         UserRepository userRepository = new UserRepository(unitOfWork);
@@ -28,7 +25,7 @@ public class TransactionController extends Controller {
 
         try {
             int userId = sessionRepository.checkForValidToken(token); // check for valid token
-            int packageId = transactionPackageRepository.getAvailablePackageId(); // receive a packageId if available
+            int packageId = cardRepository.getAvailablePackageId(); // receive a packageId if available
 
             List<String> cardIds = cardRepository.getCardIdsByPackageId(packageId); // get cardIds for this package
 

@@ -23,14 +23,12 @@ CREATE TABLE tokens (
 
 CREATE TABLE stacks (
     stack_id SERIAL,
-    user_id INTEGER NOT NULL,
 
     PRIMARY KEY (stack_id)
 );
 
 CREATE TABLE decks (
     deck_id SERIAL,
-    user_id INTEGER NOT NULL,
 
     PRIMARY KEY (deck_id)
 );
@@ -41,12 +39,10 @@ CREATE TABLE packages (
     PRIMARY KEY (package_id)
 );
 
-CREATE TABLE trading_deal (
+CREATE TABLE trading_deals (
     trading_deal_id VARCHAR NOT NULL,
-    user_id INTEGER NOT NULL,
-    card_id VARCHAR NOT NULL,
     type VARCHAR NOT NULL,
-    minimum_damage VARCHAR NOT NULL,
+    minimum_damage FLOAT NOT NULL,
 
     PRIMARY KEY (trading_deal_id)
 );
@@ -54,6 +50,7 @@ CREATE TABLE trading_deal (
 CREATE TABLE cards (
     card_id VARCHAR NOT NULL,
     user_id INTEGER NULL,
+    trading_deal_id VARCHAR NULL,
     package_id INTEGER NULL,
     deck_id INTEGER NULL,
     stack_id INTEGER NULL,
@@ -61,6 +58,24 @@ CREATE TABLE cards (
     damage FLOAT NOT NULL,
 
     PRIMARY KEY (card_id)
+);
+
+CREATE TABLE battles (
+    battle_id SERIAL,
+    user_1_id INTEGER NULL,
+    user_2_id INTEGER NULL,
+    deck_1_id INTEGER NULL,
+    deck_2_id INTEGER NULL,
+
+    PRIMARY KEY (battle_id)
+);
+
+CREATE TABLE battle_logs (
+    battle_log_id SERIAL,
+    battle_id INTEGER NOT NULL,
+    log VARCHAR NOT NULL,
+
+    PRIMARY KEY (battle_log_id)
 );
 
 ALTER TABLE tokens
@@ -72,6 +87,11 @@ ALTER TABLE cards
     ADD CONSTRAINT user_id_fk_cards
         FOREIGN KEY (user_id)
             REFERENCES users (user_id);
+
+ALTER TABLE cards
+    ADD CONSTRAINT trading_deal_id_fk_cards
+        FOREIGN KEY (trading_deal_id)
+            REFERENCES trading_deals (trading_deal_id);
 
 ALTER TABLE cards
     ADD CONSTRAINT package_id_fk_cards
@@ -88,25 +108,27 @@ ALTER TABLE cards
         FOREIGN KEY (stack_id)
             REFERENCES stacks (stack_id);
 
-ALTER TABLE trading_deal
-    ADD CONSTRAINT user_id_fk_trading_deal
-        FOREIGN KEY (user_id)
+ALTER TABLE battles
+    ADD CONSTRAINT user_1_id_fk_battles
+        FOREIGN KEY (user_1_id)
             REFERENCES users (user_id);
 
-ALTER TABLE trading_deal
-    ADD CONSTRAINT card_id_fk_trading_deal
-        FOREIGN KEY (card_id)
-            REFERENCES cards (card_id);
-
-ALTER TABLE stacks
-    ADD CONSTRAINT user_id_fk_stacks
-        FOREIGN KEY (user_id)
+ALTER TABLE battles
+    ADD CONSTRAINT user_2_id_fk_battles
+        FOREIGN KEY (user_2_id)
             REFERENCES users (user_id);
 
-ALTER TABLE decks
-    ADD CONSTRAINT user_id_fk_decks
-        FOREIGN KEY (user_id)
-            REFERENCES users (user_id);
+ALTER TABLE battles
+    ADD CONSTRAINT deck_1_id_fk_battles
+        FOREIGN KEY (deck_1_id)
+            REFERENCES decks (deck_id);
 
--- SELECT * FROM packages LIMIT 1;
--- INSERT INTO packages (package_id) VALUES (DEFAULT);
+ALTER TABLE battles
+    ADD CONSTRAINT deck_2_id_fk_battles
+        FOREIGN KEY (deck_2_id)
+            REFERENCES decks (deck_id);
+
+ALTER TABLE battle_logs
+    ADD CONSTRAINT battle_id_fk_battle_logs
+        FOREIGN KEY (battle_id)
+            REFERENCES battles (battle_id);

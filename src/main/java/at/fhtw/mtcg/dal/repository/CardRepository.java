@@ -6,7 +6,6 @@ import at.fhtw.mtcg.exception.DataNotFoundException;
 import at.fhtw.mtcg.exception.InsertFailedException;
 import at.fhtw.mtcg.exception.PrimaryKeyAlreadyExistsException;
 import at.fhtw.mtcg.model.Card;
-import com.sun.security.jgss.GSSUtil;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -41,7 +40,7 @@ public class CardRepository {
             throw new DataAccessException("DataAccessException in createUser: " + e);
         }
     }
-    public void updatePackageId(String cardId, int packageId) {
+    public void updatePackageIdByCardId(String cardId, int packageId) {
         int numberOfUpdatedRows = 0;
 
         try {
@@ -296,6 +295,41 @@ public class CardRepository {
 
         catch(SQLException e) {
             throw new DataAccessException("DataAccessException in getUserIdByDeckId: " + e);
+        }
+    }
+    public Integer getDeckIdByCardId(String cardId) {
+        try {
+            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("SELECT * FROM cards WHERE card_id = ?");
+            preparedStatement.setString(1, cardId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (!resultSet.next()) {
+                throw new DataNotFoundException("Card not found.");
+            }
+
+            return resultSet.getInt("deck_id");
+        }
+
+        catch(SQLException e) {
+            throw new DataAccessException("DataAccessException in getDeckIdByCardId: " + e);
+        }
+    }
+    public void updateTradingDealIdByCardId(String cardId, String tradingDealId) {
+        int numberOfUpdatedRows = 0;
+
+        try {
+            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("UPDATE cards SET trading_deal_id = ? WHERE card_id = ?");
+            preparedStatement.setString(1, tradingDealId);
+            preparedStatement.setString(2, cardId);
+            numberOfUpdatedRows = preparedStatement.executeUpdate();
+        }
+
+        catch(SQLException e) {
+            throw new DataAccessException("DataAccessException in updateTradingDealIdByCardId: " + e);
+        }
+
+        if(numberOfUpdatedRows == 0) {
+            throw new DataNotFoundException("Card not found.");
         }
     }
 }

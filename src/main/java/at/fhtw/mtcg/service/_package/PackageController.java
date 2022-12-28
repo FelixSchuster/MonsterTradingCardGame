@@ -48,11 +48,11 @@ public class PackageController extends Controller {
             }
 
             for(String cardId : cardIds) { // update packageId for newly created cards
-                cardRepository.updatePackageId(cardId, packageId);
+                cardRepository.updatePackageIdByCardId(cardId, packageId);
             }
 
             unitOfWork.commitTransaction();
-            return new Response(HttpStatus.CREATED, ContentType.JSON, "{\"message\":\"Package and cards successfully created\"");
+            return new Response(HttpStatus.CREATED, ContentType.JSON, "{\"message\":\"Package and cards successfully created\"}");
 
         } catch(InvalidTokenException e) {
             // e.printStackTrace();

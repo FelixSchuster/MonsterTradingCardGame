@@ -9,13 +9,13 @@ import at.fhtw.mtcg.exception.InvalidTokenException;
 import at.fhtw.mtcg.exception.NoRunningBattleException;
 import at.fhtw.mtcg.model.Card;
 import at.fhtw.mtcg.model.UserData;
+import at.fhtw.mtcg.model.UserStats;
 import at.fhtw.server.http.ContentType;
 import at.fhtw.server.http.HttpStatus;
 import at.fhtw.server.server.Request;
 import at.fhtw.server.server.Response;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -45,7 +45,7 @@ public class BattleController extends Controller {
                 UserData user1 = userRepository.getUserDataByUserId(user1Id);
                 UserData user2 = userRepository.getUserDataByUserId(user2Id);
 
-                battleRepository.updateDeck2IdByBattleId(battleId, deckId);
+                battleRepository.updateUser2IdAndDeck2IdByBattleId(userId, battleId, deckId);
 
                 if(deck1Id == deck2Id) {
                     throw new NoRunningBattleException("User is battling himself.");
@@ -65,17 +65,17 @@ public class BattleController extends Controller {
                     deck2Cards.add(cardRepository.getCardByCardId(cardId));
                 }
 
-                Collections.shuffle(deck1Cards);
-                Collections.shuffle(deck2Cards);
-
                 int user1Wins = 0;
                 int user2Wins = 0;
 
                 String battleLog = "# Battle: " + user1.getName() + " vs " + user2.getName() + "\n\r";
 
-                for(int i = 0; i < deck1Cards.size(); ++i) {
-                    Card card1 = deck1Cards.get(i);
-                    Card card2 = deck2Cards.get(i);
+                for(int i = 0; i < 100 && deck1Cards.size() > 0 && deck2Cards.size() > 0; ++i) {
+                    Collections.shuffle(deck1Cards);
+                    Collections.shuffle(deck2Cards);
+
+                    Card card1 = deck1Cards.get(0);
+                    Card card2 = deck2Cards.get(0);
 
                     float card1Damage = card1.calculateDamage(card2);
                     float card2Damage = card2.calculateDamage(card1);
@@ -87,29 +87,62 @@ public class BattleController extends Controller {
                     if(card1Damage > card2Damage) {
                         battleLog += user1.getName() + " wins\n\r\n\r";
                         user1Wins += 1;
+                        deck1Cards.add(card2);
+                        deck2Cards.remove(card2);
                     }
                     if(card1Damage < card2Damage) {
                         battleLog += user2.getName() + " wins\n\r\n\r";
                         user2Wins += 1;
+                        deck2Cards.add(card1);
+                        deck1Cards.remove(card1);
                     }
                     if(card1Damage == card2Damage) {
-                        battleLog += "Draw\n\r\n\r";
+                        battleLog += "Draw\n\r";
                     }
+                    battleLog += "Current count of cards " + user1.getName() + ": " + deck1Cards.size() + "\n\r";
+                    battleLog += "Current count of cards " + user2.getName() + ": " + deck2Cards.size() + "\n\r\n\n";
                 }
 
                 battleLog += "# Final result:\n\r";
                 battleLog += user1.getName() + ": " + user1Wins + " wins\n\r";
                 battleLog += user2.getName() + ": " + user2Wins + " wins\n\r";
 
-                if(user1Wins > user2Wins) {
+                UserStats user1Stats = userRepository.getUserStatsByUserId(user1Id);
+                UserStats user2Stats = userRepository.getUserStatsByUserId(user2Id);
+
+                if(deck2Cards.size() == 0) {
                     battleLog += "Final result: " + user1.getName() + " wins!";
+
+                    for(Card card : deck1Cards) {
+                        cardRepository.updateUserIdByCardId(card.getId(), user1Id);
+                        cardRepository.resetDeckIds(user1Id, deck1Id);
+                    }
+
+                    user1Stats.setElo(user1Stats.getElo() + 3);
+                    user1Stats.setWins(user1Stats.getWins() + 1);
+                    user2Stats.setElo(user2Stats.getElo() - 5);
+                    user2Stats.setLosses(user2Stats.getLosses() + 1);
+
                 }
-                if(user1Wins < user2Wins) {
+                else if(deck1Cards.size() == 0) {
                     battleLog += "Final result: " + user2.getName() + " wins!";
+
+                    for(Card card : deck2Cards) {
+                        cardRepository.updateUserIdByCardId(card.getId(), user2Id);
+                        cardRepository.resetDeckIds(user2Id, deck2Id);
+                    }
+
+                    user2Stats.setElo(user2Stats.getElo() + 3);
+                    user2Stats.setWins(user2Stats.getWins() + 1);
+                    user1Stats.setElo(user1Stats.getElo() - 5);
+                    user1Stats.setLosses(user1Stats.getLosses() + 1);
                 }
-                if(user1Wins == user2Wins) {
+                else {
                     battleLog += "Final result: draw!";
                 }
+
+                userRepository.updateUserStatsByUserId(user1Id, user1Stats);
+                userRepository.updateUserStatsByUserId(user2Id, user2Stats);
 
                 battlelogRepository.createBattlelog(battleId, battleLog);
 
@@ -117,7 +150,7 @@ public class BattleController extends Controller {
                 return new Response(HttpStatus.OK, ContentType.JSON, "{\"message\":\"The battle has been carried out successfully.\"}");
 
             } catch(NoRunningBattleException e) { // no battle exists
-                battleRepository.createBattle(deckId);
+                battleRepository.createBattle(userId, deckId);
 
                 unitOfWork.commitTransaction();
                 return new Response(HttpStatus.OK, ContentType.JSON, "{\"message\":\"The battle has been carried out successfully.\"}");
@@ -137,7 +170,7 @@ public class BattleController extends Controller {
             // e.printStackTrace();
 
         } catch(Exception e) {
-            // e.printStackTrace();
+            e.printStackTrace();
         }
 
         unitOfWork.rollbackTransaction();

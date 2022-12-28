@@ -39,11 +39,10 @@ CREATE TABLE packages (
     PRIMARY KEY (package_id)
 );
 
-CREATE TABLE trading_deal (
+CREATE TABLE trading_deals (
     trading_deal_id VARCHAR NOT NULL,
-    card_id VARCHAR NOT NULL,
     type VARCHAR NOT NULL,
-    minimum_damage VARCHAR NOT NULL,
+    minimum_damage FLOAT NOT NULL,
 
     PRIMARY KEY (trading_deal_id)
 );
@@ -51,6 +50,7 @@ CREATE TABLE trading_deal (
 CREATE TABLE cards (
     card_id VARCHAR NOT NULL,
     user_id INTEGER NULL,
+    trading_deal_id VARCHAR NULL,
     package_id INTEGER NULL,
     deck_id INTEGER NULL,
     stack_id INTEGER NULL,
@@ -62,6 +62,8 @@ CREATE TABLE cards (
 
 CREATE TABLE battles (
     battle_id SERIAL,
+    user_1_id INTEGER NULL,
+    user_2_id INTEGER NULL,
     deck_1_id INTEGER NULL,
     deck_2_id INTEGER NULL,
 
@@ -87,6 +89,11 @@ ALTER TABLE cards
             REFERENCES users (user_id);
 
 ALTER TABLE cards
+    ADD CONSTRAINT trading_deal_id_fk_cards
+        FOREIGN KEY (trading_deal_id)
+            REFERENCES trading_deals (trading_deal_id);
+
+ALTER TABLE cards
     ADD CONSTRAINT package_id_fk_cards
         FOREIGN KEY (package_id)
             REFERENCES packages (package_id);
@@ -101,18 +108,23 @@ ALTER TABLE cards
         FOREIGN KEY (stack_id)
             REFERENCES stacks (stack_id);
 
-ALTER TABLE trading_deal
-    ADD CONSTRAINT card_id_fk_trading_deal
-        FOREIGN KEY (card_id)
-            REFERENCES cards (card_id);
+ALTER TABLE battles
+    ADD CONSTRAINT user_1_id_fk_battles
+        FOREIGN KEY (user_1_id)
+            REFERENCES users (user_id);
 
 ALTER TABLE battles
-    ADD CONSTRAINT deck_id_1_fk_battles
+    ADD CONSTRAINT user_2_id_fk_battles
+        FOREIGN KEY (user_2_id)
+            REFERENCES users (user_id);
+
+ALTER TABLE battles
+    ADD CONSTRAINT deck_1_id_fk_battles
         FOREIGN KEY (deck_1_id)
             REFERENCES decks (deck_id);
 
 ALTER TABLE battles
-    ADD CONSTRAINT deck_id_2_fk_battles
+    ADD CONSTRAINT deck_2_id_fk_battles
         FOREIGN KEY (deck_2_id)
             REFERENCES decks (deck_id);
 

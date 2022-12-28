@@ -13,7 +13,7 @@ public class TransactionService implements Service {
     @Override
     public Response handleRequest(Request request) {
 
-        if (request.getMethod() == Method.POST && request.getPathParts().size() > 0 && request.getPathParts().get(1).equals("packages")) {
+        if (request.getMethod() == Method.POST && request.getPathParts().size() > 1 && request.getPathParts().get(1).equals("packages")) {
             return this.transactionPackageController.acquirePackage(request);
         }
 

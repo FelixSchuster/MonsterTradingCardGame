@@ -178,6 +178,27 @@ public class UserRepository {
             throw new DataAccessException("DataAccessException in getUserStatsByUserId: " + e);
         }
     }
+    public void updateUserStatsByUserId(int userId, UserStats userStats) {
+        int numberOfUpdatedRows = 0;
+
+        try {
+            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("UPDATE users SET name = ?, elo = ?, wins = ?, losses = ? WHERE user_id = ?");
+            preparedStatement.setString(1, userStats.getName());
+            preparedStatement.setInt(2, userStats.getElo());
+            preparedStatement.setInt(3, userStats.getWins());
+            preparedStatement.setInt(4, userStats.getLosses());
+            preparedStatement.setInt(5, userId);
+            numberOfUpdatedRows = preparedStatement.executeUpdate();
+        }
+
+        catch(SQLException e) {
+            throw new DataAccessException("DataAccessException in updateUserStatsByUserId: " + e);
+        }
+
+        if(numberOfUpdatedRows == 0) {
+            throw new DataNotFoundException("User not found.");
+        }
+    }
     public List<UserStats> getUserStats() {
         List<UserStats> userStats = new ArrayList<>();
 

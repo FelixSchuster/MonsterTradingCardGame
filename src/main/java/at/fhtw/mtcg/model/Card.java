@@ -1,6 +1,8 @@
 package at.fhtw.mtcg.model;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class Card {
     @JsonAlias({"Id"})
     String id;
@@ -35,42 +37,55 @@ public class Card {
     public void setDamage(Float damage) {
         this.damage = damage;
     }
+    @JsonIgnore
     public Boolean isSpellCard() {
         return this.name.endsWith("Spell");
     }
+    @JsonIgnore
     public Boolean isMonsterCard() {
         return !isSpellCard();
     }
+    @JsonIgnore
     public Boolean isWaterCard() {
         return this.name.startsWith("Water");
     }
+    @JsonIgnore
     public Boolean isFireCard() {
         return this.name.startsWith("Fire");
     }
+    @JsonIgnore
     public Boolean isRegularCard() {
         return !isWaterCard() && !isFireCard();
     }
+    @JsonIgnore
     public Boolean isGoblinCard() {
         return this.name.endsWith("Goblin");
     }
+    @JsonIgnore
     public Boolean isDragonCard() {
         return this.name.endsWith("Dragon");
     }
+    @JsonIgnore
     public Boolean isWizardCard() {
         return this.name.endsWith("Wizard");
     }
+    @JsonIgnore
     public Boolean isOrkCard() {
         return this.name.endsWith("Ork");
     }
+    @JsonIgnore
     public Boolean isKnightCard() {
         return this.name.endsWith("Knight");
     }
+    @JsonIgnore
     public Boolean isKrakenCard() {
         return this.name.endsWith("Kraken");
     }
+    @JsonIgnore
     public Boolean isElfCard() {
         return this.name.endsWith("Elf");
     }
+    @JsonIgnore
     public float calculateDamage(Card opponentCard) {
         Boolean isPureMonsterFight = this.isMonsterCard() && opponentCard.isMonsterCard(); // element type does not affect pure monster fights
 

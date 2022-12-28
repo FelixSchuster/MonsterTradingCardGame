@@ -31,10 +31,11 @@ public class BattleRepository {
             throw new DataAccessException("DataAccessException in getRunningBattle: " + e);
         }
     }
-    public int createBattle(int deckId) {
+    public int createBattle(int userId, int deckId) {
         try {
-            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("INSERT INTO battles (deck_1_id) VALUES (?) RETURNING battle_id");
-            preparedStatement.setInt(1, deckId);
+            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("INSERT INTO battles (user_1_id, deck_1_id) VALUES (?, ?) RETURNING battle_id");
+            preparedStatement.setInt(1, userId);
+            preparedStatement.setInt(2, deckId);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if(!resultSet.next()) {
@@ -47,18 +48,19 @@ public class BattleRepository {
             throw new DataAccessException("DataAccessException in createBattle: " + e);
         }
     }
-    public void updateDeck2IdByBattleId(int battleId, int deck2Id) {
+    public void updateUser2IdAndDeck2IdByBattleId(int userId, int battleId, int deck2Id) {
         int numberOfUpdatedRows = 0;
 
         try {
-            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("UPDATE battles SET deck_2_id = ? WHERE battle_id = ?");
-            preparedStatement.setInt(1, deck2Id);
-            preparedStatement.setInt(2, battleId);
+            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("UPDATE battles SET user_2_id = ?, deck_2_id = ? WHERE battle_id = ?");
+            preparedStatement.setInt(1, userId);
+            preparedStatement.setInt(2, deck2Id);
+            preparedStatement.setInt(3, battleId);
             numberOfUpdatedRows = preparedStatement.executeUpdate();
         }
 
         catch(SQLException e) {
-            throw new DataAccessException("DataAccessException in updateDeck2IdByBattleId: " + e);
+            throw new DataAccessException("DataAccessException in updateUser2IdAndDeck2IdByBattleId: " + e);
         }
 
         if(numberOfUpdatedRows == 0) {
@@ -68,7 +70,7 @@ public class BattleRepository {
     public int getDeck1IdByBattleId(int battleId) {
         try {
             PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("SELECT * FROM battles WHERE battle_id = ?");
-            preparedStatement.setInt(1,battleId);
+            preparedStatement.setInt(1, battleId);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if (!resultSet.next()) {
@@ -82,4 +84,5 @@ public class BattleRepository {
             throw new DataAccessException("DataAccessException in getDeck1IdByBattleId: " + e);
         }
     }
+
 }

@@ -5,9 +5,7 @@ import at.fhtw.mtcg.dal.UnitOfWork;
 import at.fhtw.mtcg.dal.repository.CardRepository;
 import at.fhtw.mtcg.dal.repository.SessionRepository;
 import at.fhtw.mtcg.dal.repository.TradingRepository;
-import at.fhtw.mtcg.exception.DataNotFoundException;
-import at.fhtw.mtcg.exception.InvalidCardException;
-import at.fhtw.mtcg.exception.InvalidTokenException;
+import at.fhtw.mtcg.exception.*;
 import at.fhtw.mtcg.model.Card;
 import at.fhtw.mtcg.model.TradingDeal;
 import at.fhtw.server.http.ContentType;
@@ -72,9 +70,7 @@ public class TradingController extends Controller {
 
             String tradingDealId = tradingRepository.createTradingDeal(tradingDeal);
 
-            // TODO: fix the bugs
-
-            if(!(userId == cardRepository.getUserIdByCardId(cardId) && cardRepository.getDeckIdByCardId(cardId) == null)) {
+            if(userId != cardRepository.getUserIdByCardId(cardId) || cardRepository.getDeckIdByCardId(cardId) != 0) {
                 throw new InvalidCardException("The deal contains a card that is not owned by the user or locked in the deck.");
             }
 
@@ -92,6 +88,11 @@ public class TradingController extends Controller {
             // e.printStackTrace();
             unitOfWork.rollbackTransaction();
             return new Response(HttpStatus.FORBIDDEN, ContentType.JSON, "{\"message\":\"The deal contains a card that is not owned by the user or locked in the deck.\"}");
+
+        } catch(PrimaryKeyAlreadyExistsException e) {
+            // e.printStackTrace();
+            unitOfWork.rollbackTransaction();
+            return new Response(HttpStatus.CONFLICT, ContentType.JSON, "{\"message\":\"A deal with this deal ID already exists.\"}");
 
         } catch(JsonProcessingException e) {
             // e.printStackTrace();
@@ -115,13 +116,40 @@ public class TradingController extends Controller {
         try {
             int userId = sessionRepository.checkForValidToken(token); // check for valid token
 
-            // TODO: finish implementation
+            if(userId != tradingRepository.getUserIdByTradingDealId(tradingDealId)) {
+                throw new InvalidTradingDealException("The deal contains a card that is not owned by the user.");
+            }
 
+            String cardId = tradingRepository.getCardIdByTradingDealId(tradingDealId); // get card id
+            cardRepository.updateTradingDealIdByCardId(cardId, null); // set trading deal id in card null
+            tradingRepository.deleteTradingDealByTradingDealId(tradingDealId); // delete trading deal
+
+            unitOfWork.commitTransaction();
+            return new Response(HttpStatus.OK, ContentType.JSON, "{\"message\":\"Trading deal successfully deleted\"}");
+
+        } catch(InvalidTokenException e) {
+            // e.printStackTrace();
+            unitOfWork.rollbackTransaction();
+            return new Response(HttpStatus.UNAUTHORIZED, ContentType.JSON, "{\"message\":\"Authentication information is missing or invalid\"}");
+
+        } catch(InvalidTradingDealException e) {
+            // e.printStackTrace();
+            unitOfWork.rollbackTransaction();
+            return new Response(HttpStatus.FORBIDDEN, ContentType.JSON, "{\"message\":\"The deal contains a card that is not owned by the user.\"}");
+
+        } catch (DataNotFoundException e) {
+            // e.printStackTrace();
+            unitOfWork.rollbackTransaction();
+            return new Response(HttpStatus.NOT_FOUND, ContentType.JSON, "{\"message\":\"The provided deal ID was not found.\"}");
+
+        } catch(DeleteFailedException e) {
+            // e.printStackTrace();
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            // e.printStackTrace();
         }
 
-        return null;
+        unitOfWork.rollbackTransaction();
+        return new Response(HttpStatus.INTERNAL_SERVER_ERROR, ContentType.JSON, "{\"message\":\"Internal Server Error\"}");
     }
 }

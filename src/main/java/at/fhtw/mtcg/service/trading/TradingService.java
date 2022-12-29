@@ -17,7 +17,7 @@ public class TradingService implements Service {
             return this.tradingController.getTradingDeals(request);
         }
 
-        if (request.getMethod() == Method.POST) {
+        if (request.getMethod() == Method.POST && request.getPathParts().size() == 1) {
             return this.tradingController.createTradingDeal(request);
         }
 

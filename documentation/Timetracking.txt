@@ -19,3 +19,4 @@ Datum,Startzeit,Endzeit,Aufgabe
 2022-12-27,13:45,15:30,Battle Service
 2022-12-28,11:30,14:30,Battle Service
 2022-12-28,18:30,22:15,Battle Service; Trading Service
+2022-12-29,11:30,13:15,Bugfixes; Trading Service

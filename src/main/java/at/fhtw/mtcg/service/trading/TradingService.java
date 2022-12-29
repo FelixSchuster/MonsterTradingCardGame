@@ -25,6 +25,10 @@ public class TradingService implements Service {
             return this.tradingController.deleteTradingDeal(request);
         }
 
+        if (request.getMethod() == Method.POST && request.getPathParts().size() > 1) {
+            return this.tradingController.trade(request);
+        }
+
         return null;
     }
 }

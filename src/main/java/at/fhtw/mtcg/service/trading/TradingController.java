@@ -152,4 +152,64 @@ public class TradingController extends Controller {
         unitOfWork.rollbackTransaction();
         return new Response(HttpStatus.INTERNAL_SERVER_ERROR, ContentType.JSON, "{\"message\":\"Internal Server Error\"}");
     }
+    public Response trade(Request request) {
+        UnitOfWork unitOfWork = new UnitOfWork();
+        SessionRepository sessionRepository = new SessionRepository(unitOfWork);
+        TradingRepository tradingRepository = new TradingRepository(unitOfWork);
+        CardRepository cardRepository = new CardRepository(unitOfWork);
+
+        String tradingDealId =  request.getPathParts().get(1);
+        String token = request.getHeaderMap().getAuthorizationTokenHeader();
+
+        try {
+            String card1Id = this.getObjectMapper().readValue(request.getBody(), String.class);
+
+            int user1Id = sessionRepository.checkForValidToken(token); // check for valid token
+            Card card = cardRepository.getCardByCardId(card1Id);
+
+            TradingDeal tradingDeal = tradingRepository.getTradingDealByTradingDealId(tradingDealId);
+
+            if((tradingDeal.getType().toLowerCase() == "spell" && !card.isSpellCard()) // requirement spell card is not met
+                    || (tradingDeal.getType().toLowerCase() == "monster" && !card.isMonsterCard()) // requirement monster card is not met
+                    || (tradingDeal.getMinimumDamage() > card.getDamage()) // requirement min damage is not met
+                    || (cardRepository.getDeckIdByCardId(card1Id) != 0) // card is locked in deck
+                    || (user1Id == tradingRepository.getUserIdByTradingDealId(tradingDealId))) { // user is trading with himself
+                throw new InvalidTradingDealException("The offered card is not owned by the user, or the requirements are not met (Type, MinimumDamage), or the offered card is locked in the deck.");
+            }
+
+            int user2Id = tradingRepository.getUserIdByTradingDealId(tradingDealId);
+            String card2Id = tradingDeal.getCardToTrade();
+
+            cardRepository.updateTradingDealIdByCardId(card2Id, null); // set trading deal id in card null
+            tradingRepository.deleteTradingDealByTradingDealId(tradingDealId); // delete trading deal
+            cardRepository.updateUserIdByCardId(card1Id, user2Id); // set user id of card 1 to user 2 id
+            cardRepository.updateUserIdByCardId(card2Id, user1Id); // set user id of card 2 to user 1 id
+
+            // TODO: card2 should be blocked if it is offered for trade
+
+            unitOfWork.commitTransaction();
+            return new Response(HttpStatus.OK, ContentType.JSON, "{\"message\":\"Trading deal successfully executed.\"}");
+
+        } catch(InvalidTokenException e) {
+            // e.printStackTrace();
+            unitOfWork.rollbackTransaction();
+            return new Response(HttpStatus.UNAUTHORIZED, ContentType.JSON, "{\"message\":\"Authentication information is missing or invalid\"}");
+
+        } catch(InvalidTradingDealException e) {
+            // e.printStackTrace();
+            unitOfWork.rollbackTransaction();
+            return new Response(HttpStatus.FORBIDDEN, ContentType.JSON, "{\"message\":\"The offered card is not owned by the user, or the requirements are not met (Type, MinimumDamage), or the offered card is locked in the deck.\"}");
+
+        } catch (DataNotFoundException e) {
+            // e.printStackTrace();
+            unitOfWork.rollbackTransaction();
+            return new Response(HttpStatus.NOT_FOUND, ContentType.JSON, "{\"message\":\"The provided deal ID was not found.\"}");
+
+        } catch (Exception e) {
+            // e.printStackTrace();
+        }
+
+        unitOfWork.rollbackTransaction();
+        return new Response(HttpStatus.INTERNAL_SERVER_ERROR, ContentType.JSON, "{\"message\":\"Internal Server Error\"}");
+    }
 }

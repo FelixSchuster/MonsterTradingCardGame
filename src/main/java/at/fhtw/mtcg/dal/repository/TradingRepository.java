@@ -119,4 +119,25 @@ public class TradingRepository {
             throw new DataAccessException("DataAccessException in getCardIdByTradingDealId: " + e);
         }
     }
+    public TradingDeal getTradingDealByTradingDealId(String tradingDealId) {
+        try {
+            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("SELECT * FROM cards JOIN trading_deals ON cards.trading_deal_id = cards.trading_deal_id WHERE trading_deals.trading_deal_id = ?");
+            preparedStatement.setString(1,tradingDealId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (!resultSet.next()) {
+                throw new DataNotFoundException("The provided deal ID was not found.");
+            }
+
+            String cardToTrade = resultSet.getString("card_id");
+            String type = resultSet.getString("type");
+            Float minimumDamage = resultSet.getFloat("minimum_damage");
+
+            return new TradingDeal(tradingDealId, cardToTrade, type, minimumDamage);
+        }
+
+        catch(SQLException e) {
+            throw new DataAccessException("DataAccessException in getTradingDealByTradingDealId: " + e);
+        }
+    }
 }

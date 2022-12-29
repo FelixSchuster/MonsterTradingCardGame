@@ -24,7 +24,7 @@ public class HeaderMap {
     }
     public String getAuthorizationTokenHeader() {
         String token = headers.get(AUTHORIZATION_TOKEN_HEADER);
-        if(token != null) {
+        if(token != null && token.toLowerCase().startsWith("basic ")) {
             token = token.substring(6);
         }
         return token;

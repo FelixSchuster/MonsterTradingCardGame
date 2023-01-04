@@ -87,7 +87,7 @@ public class DeckController extends Controller {
         } catch(DataNotFoundException e) {
             // e.printStackTrace();
             unitOfWork.rollbackTransaction();
-            return new Response(HttpStatus.NOT_FOUND, ContentType.JSON, "{\"message\":\"The request was fine, but the user doesn't have any cards\"}");
+            return new Response(HttpStatus.NO_CONTENT, ContentType.JSON, "{\"message\":\"The request was fine, but the user doesn't have any cards\"}");
 
         } catch(InvalidTokenException e) {
             // e.printStackTrace();

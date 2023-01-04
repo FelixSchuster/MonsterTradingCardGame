@@ -1,10 +1,7 @@
 package at.fhtw.mtcg.dal.repository;
 
 import at.fhtw.mtcg.dal.UnitOfWork;
-import at.fhtw.mtcg.exception.DataAccessException;
-import at.fhtw.mtcg.exception.DataNotFoundException;
-import at.fhtw.mtcg.exception.InsertFailedException;
-import at.fhtw.mtcg.exception.PrimaryKeyAlreadyExistsException;
+import at.fhtw.mtcg.exception.*;
 import at.fhtw.mtcg.model.TradingDeal;
 
 import java.sql.PreparedStatement;
@@ -72,6 +69,75 @@ public class TradingRepository {
             }
 
             throw new DataAccessException("DataAccessException in createTradingDeal: " + e);
+        }
+    }
+    public void deleteTradingDealByTradingDealId(String tradingDealId) {
+        int numberOfDeletedRows = 0;
+
+        try {
+            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("DELETE FROM trading_deals WHERE trading_deal_id = ?");
+            preparedStatement.setString(1, tradingDealId);
+            numberOfDeletedRows = preparedStatement.executeUpdate();
+
+            if(numberOfDeletedRows == 0) {
+                throw new DeleteFailedException("The provided deal ID was not found.");
+            }
+
+        } catch(SQLException e) {
+            throw new DataAccessException("DataAccessException in deleteTradingDealByTradingDealId: " + e);
+        }
+    }
+    public int getUserIdByTradingDealId(String tradingDealId) {
+        try {
+            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("SELECT * FROM trading_deals JOIN cards ON trading_deals.trading_deal_id = cards.trading_deal_id WHERE trading_deals.trading_deal_id = ?");
+            preparedStatement.setString(1,tradingDealId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if(!resultSet.next()) {
+                throw new DataNotFoundException("Trading deal not found.");
+            }
+
+            return resultSet.getInt("user_id");
+
+        } catch(SQLException e) {
+            throw new DataAccessException("DataAccessException in getUserIdByTradingDealId: " + e);
+        }
+    }
+    public String getCardIdByTradingDealId(String tradingDealId) {
+        try {
+            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("SELECT * FROM trading_deals JOIN cards ON trading_deals.trading_deal_id = cards.trading_deal_id WHERE trading_deals.trading_deal_id = ?");
+            preparedStatement.setString(1,tradingDealId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if(!resultSet.next()) {
+                throw new DataNotFoundException("Trading deal not found.");
+            }
+
+            return resultSet.getString("card_id");
+
+        } catch(SQLException e) {
+            throw new DataAccessException("DataAccessException in getCardIdByTradingDealId: " + e);
+        }
+    }
+    public TradingDeal getTradingDealByTradingDealId(String tradingDealId) {
+        try {
+            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("SELECT * FROM cards JOIN trading_deals ON cards.trading_deal_id = cards.trading_deal_id WHERE trading_deals.trading_deal_id = ?");
+            preparedStatement.setString(1,tradingDealId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (!resultSet.next()) {
+                throw new DataNotFoundException("The provided deal ID was not found.");
+            }
+
+            String cardToTrade = resultSet.getString("card_id");
+            String type = resultSet.getString("type");
+            Float minimumDamage = resultSet.getFloat("minimum_damage");
+
+            return new TradingDeal(tradingDealId, cardToTrade, type, minimumDamage);
+        }
+
+        catch(SQLException e) {
+            throw new DataAccessException("DataAccessException in getTradingDealByTradingDealId: " + e);
         }
     }
 }

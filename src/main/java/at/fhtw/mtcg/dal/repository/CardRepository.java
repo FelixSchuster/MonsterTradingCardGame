@@ -297,7 +297,7 @@ public class CardRepository {
             throw new DataAccessException("DataAccessException in getUserIdByDeckId: " + e);
         }
     }
-    public Integer getDeckIdByCardId(String cardId) {
+    public int getDeckIdByCardId(String cardId) {
         try {
             PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("SELECT * FROM cards WHERE card_id = ?");
             preparedStatement.setString(1, cardId);

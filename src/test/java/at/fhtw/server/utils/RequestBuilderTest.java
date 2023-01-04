@@ -27,6 +27,6 @@ public class RequestBuilderTest {
         assertEquals("/echo/mehr", request.getPathname());
         assertEquals("/echo", request.getServiceRoute());
         assertEquals("mehr", request.getPathParts().get(1));
-        assertEquals(8, request.getHeaderMap().getContentLength());
+        assertEquals(8, request.getHeaderMap().getContentLengthHeader());
     }
 }

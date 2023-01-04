@@ -24,9 +24,9 @@ public class RequestBuilder {
                 line = bufferedReader.readLine();
             }
 
-            if (request.getHeaderMap().getContentLength() > 0) {
-                char[] charBuffer = new char[request.getHeaderMap().getContentLength()];
-                bufferedReader.read(charBuffer, 0, request.getHeaderMap().getContentLength());
+            if (request.getHeaderMap().getContentLengthHeader() > 0) {
+                char[] charBuffer = new char[request.getHeaderMap().getContentLengthHeader()];
+                bufferedReader.read(charBuffer, 0, request.getHeaderMap().getContentLengthHeader());
 
                 request.setBody(new String(charBuffer));
             }

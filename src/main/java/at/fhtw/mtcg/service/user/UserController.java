@@ -80,7 +80,7 @@ public class UserController extends Controller {
             userRepository.updateUserDataByUsername(username, userData);
 
             unitOfWork.commitTransaction();
-            return new Response(HttpStatus.CREATED, ContentType.JSON, "{\"message\":\"User successfully updated.\"}");
+            return new Response(HttpStatus.OK, ContentType.JSON, "{\"message\":\"User successfully updated.\"}");
 
         } catch(DataNotFoundException e) {
             // e.printStackTrace();
@@ -123,7 +123,7 @@ public class UserController extends Controller {
 
         } catch(PrimaryKeyAlreadyExistsException e) {
             unitOfWork.rollbackTransaction();
-            return new Response(HttpStatus.INTERNAL_SERVER_ERROR, ContentType.JSON, "{\"message\":\"User with same username already registered\"}");
+            return new Response(HttpStatus.CONFLICT, ContentType.JSON, "{\"message\":\"User with same username already registered\"}");
 
         } catch (InsertFailedException e) {
             // e.printStackTrace();

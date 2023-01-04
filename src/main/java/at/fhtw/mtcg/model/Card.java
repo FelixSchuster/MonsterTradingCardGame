@@ -39,7 +39,7 @@ public class Card {
     }
     @JsonIgnore
     public Boolean isSpellCard() {
-        return this.name.endsWith("Spell");
+        return this.name.toLowerCase().endsWith("spell");
     }
     @JsonIgnore
     public Boolean isMonsterCard() {
@@ -47,11 +47,11 @@ public class Card {
     }
     @JsonIgnore
     public Boolean isWaterCard() {
-        return this.name.startsWith("Water");
+        return this.name.toLowerCase().startsWith("water");
     }
     @JsonIgnore
     public Boolean isFireCard() {
-        return this.name.startsWith("Fire");
+        return this.name.toLowerCase().startsWith("fire");
     }
     @JsonIgnore
     public Boolean isRegularCard() {
@@ -59,31 +59,31 @@ public class Card {
     }
     @JsonIgnore
     public Boolean isGoblinCard() {
-        return this.name.endsWith("Goblin");
+        return this.name.toLowerCase().endsWith("goblin");
     }
     @JsonIgnore
     public Boolean isDragonCard() {
-        return this.name.endsWith("Dragon");
+        return this.name.toLowerCase().endsWith("dragon");
     }
     @JsonIgnore
     public Boolean isWizardCard() {
-        return this.name.endsWith("Wizard");
+        return this.name.toLowerCase().endsWith("wizard");
     }
     @JsonIgnore
     public Boolean isOrkCard() {
-        return this.name.endsWith("Ork");
+        return this.name.toLowerCase().endsWith("ork");
     }
     @JsonIgnore
     public Boolean isKnightCard() {
-        return this.name.endsWith("Knight");
+        return this.name.toLowerCase().endsWith("knight");
     }
     @JsonIgnore
     public Boolean isKrakenCard() {
-        return this.name.endsWith("Kraken");
+        return this.name.toLowerCase().endsWith("kraken");
     }
     @JsonIgnore
     public Boolean isElfCard() {
-        return this.name.endsWith("Elf");
+        return this.name.toLowerCase().endsWith("elf");
     }
     @JsonIgnore
     public float calculateDamage(Card opponentCard) {

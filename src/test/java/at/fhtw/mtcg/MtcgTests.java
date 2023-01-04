@@ -126,6 +126,22 @@ public class MtcgTests {
     }
     @Test
     @Order(7)
+    void testLogout() {
+        SessionService sessionService = new SessionService();
+        Request request = new Request();
+
+        request.setHeaderMap(new HeaderMap());
+        request.setMethod(Method.DELETE);
+        request.setPathname("/sessions");
+        request.getHeaderMap().setAuthorizationTokenHeader("Basic kienboec-mtcgToken");
+
+        Response response = sessionService.handleRequest(request);
+
+        assertEquals("{\"message\":\"Logged out successfully\"}", response.getContent());
+        assertEquals(200, response.getStatus());
+    }
+    @Test
+    @Order(8)
     void testSetUserDataWithoutToken() {
         UserService userService = new UserService();
         Request request = new Request();
@@ -133,6 +149,7 @@ public class MtcgTests {
         request.setHeaderMap(new HeaderMap());
         request.setMethod(Method.PUT);
         request.setPathname("/users/kienboec");
+        // request.getHeaderMap().setAuthorizationTokenHeader("Basic kienboec-mtcgToken");
         request.setBody("{\"Name\":\"Hoax\",\"Bio\":\"me playin...\",\"Image\":\":-)\"}");
         request.getHeaderMap().setContentLengthHeader(String.valueOf(request.getBody().length()));
         request.getHeaderMap().setContentTypeHeader(String.valueOf(ContentType.JSON));
@@ -143,7 +160,25 @@ public class MtcgTests {
         assertEquals(401, response.getStatus());
     }
     @Test
-    @Order(8)
+    @Order(9)
+    void testReLoginWithValidCredentials() {
+        SessionService sessionService = new SessionService();
+        Request request = new Request();
+
+        request.setHeaderMap(new HeaderMap());
+        request.setMethod(Method.POST);
+        request.setPathname("/sessions");
+        request.setBody("{\"Username\":\"kienboec\",\"Password\":\"daniel\"}");
+        request.getHeaderMap().setContentLengthHeader(String.valueOf(request.getBody().length()));
+        request.getHeaderMap().setContentTypeHeader(String.valueOf(ContentType.JSON));
+
+        Response response = sessionService.handleRequest(request);
+
+        assertEquals("{\"token\":\"kienboec-mtcgToken\"}", response.getContent());
+        assertEquals(200, response.getStatus());
+    }
+    @Test
+    @Order(10)
     void testSetUserDataWithValidToken() {
         UserService userService = new UserService();
         Request request = new Request();
@@ -162,7 +197,7 @@ public class MtcgTests {
         assertEquals(200, response.getStatus());
     }
     @Test
-    @Order(9)
+    @Order(11)
     void testGetUserDataWithValidToken() {
         UserService userService = new UserService();
         Request request = new Request();
@@ -178,7 +213,7 @@ public class MtcgTests {
         assertEquals(200, response.getStatus());
     }
     @Test
-    @Order(10)
+    @Order(12)
     void testCreateAdministratorAccount() {
         UserService userService = new UserService();
         Request request = new Request();
@@ -196,7 +231,7 @@ public class MtcgTests {
         assertEquals(201, response.getStatus());
     }
     @Test
-    @Order(11)
+    @Order(13)
     void testLoginAsAdministrator() {
         SessionService sessionService = new SessionService();
         Request request = new Request();
@@ -214,7 +249,7 @@ public class MtcgTests {
         assertEquals(200, response.getStatus());
     }
     @Test
-    @Order(12)
+    @Order(14)
     void testCreatePackageAsNonAdministrator() {
         PackageService packageService = new PackageService();
         Request request = new Request();
@@ -237,7 +272,7 @@ public class MtcgTests {
         assertEquals(403, response.getStatus());
     }
     @Test
-    @Order(13)
+    @Order(15)
     void testCreatePackageAsAdministrator() {
         PackageService packageService = new PackageService();
         Request request = new Request();
@@ -260,7 +295,7 @@ public class MtcgTests {
         assertEquals(201, response.getStatus());
     }
     @Test
-    @Order(14)
+    @Order(16)
     void testCreatePackageWithExistingCardAsAdministrator() {
         PackageService packageService = new PackageService();
         Request request = new Request();
@@ -283,7 +318,7 @@ public class MtcgTests {
         assertEquals(409, response.getStatus());
     }
     @Test
-    @Order(15)
+    @Order(17)
     void testAcquireAnExistingPackage() {
         TransactionService transactionService = new TransactionService();
         Request request = new Request();
@@ -299,7 +334,7 @@ public class MtcgTests {
         assertEquals(200, response.getStatus());
     }
     @Test
-    @Order(16)
+    @Order(18)
     void testAcquireANonExistingPackage() {
         TransactionService transactionService = new TransactionService();
         Request request = new Request();
@@ -315,7 +350,7 @@ public class MtcgTests {
         assertEquals(404, response.getStatus());
     }
     @Test
-    @Order(17)
+    @Order(19)
     void testCreateMorePackagesAsAdministrator() {
         PackageService packageService = new PackageService();
         Request request = new Request();
@@ -390,7 +425,7 @@ public class MtcgTests {
         assertEquals(201, response.getStatus());
     }
     @Test
-    @Order(18)
+    @Order(20)
     void testAcquireMoreExistingPackages() {
         TransactionService transactionService = new TransactionService();
         Request request = new Request();
@@ -416,7 +451,7 @@ public class MtcgTests {
         assertEquals(200, response.getStatus());
     }
     @Test
-    @Order(19)
+    @Order(21)
     void testAcquireAPackageWithoutCoins() {
         TransactionService transactionService = new TransactionService();
         Request request = new Request();
@@ -432,7 +467,7 @@ public class MtcgTests {
         assertEquals(403, response.getStatus());
     }
     @Test
-    @Order(20)
+    @Order(22)
     void testShowCardsButUserHasNoCards() {
         CardService cardService = new CardService();
         Request request = new Request();
@@ -448,7 +483,7 @@ public class MtcgTests {
         assertEquals(204, response.getStatus());
     }
     @Test
-    @Order(21)
+    @Order(23)
     void testShowCards() {
         CardService cardService = new CardService();
         Request request = new Request();
@@ -483,7 +518,7 @@ public class MtcgTests {
         assertEquals(200, response.getStatus());
     }
     @Test
-    @Order(22)
+    @Order(24)
     void testShowDeckButUserHasNoCardsInDeck() {
         DeckService deckService = new DeckService();
         Request request = new Request();
@@ -499,7 +534,7 @@ public class MtcgTests {
         assertEquals(204, response.getStatus());
     }
     @Test
-    @Order(23)
+    @Order(25)
     void testConfigureDeckButProvidedCardDoesNotBelongToUser() {
         DeckService deckService = new DeckService();
         Request request = new Request();
@@ -521,7 +556,7 @@ public class MtcgTests {
         assertEquals(403, response.getStatus());
     }
     @Test
-    @Order(24)
+    @Order(26)
     void testConfigureDeck() {
         DeckService deckService = new DeckService();
         Request request = new Request();
@@ -543,7 +578,7 @@ public class MtcgTests {
         assertEquals(200, response.getStatus());
     }
     @Test
-    @Order(25)
+    @Order(27)
     void testShowDeck() {
         DeckService deckService = new DeckService();
         Request request = new Request();
@@ -560,5 +595,25 @@ public class MtcgTests {
                 "{\"id\":\"e85e3976-7c86-4d06-9a80-641c2019a79f\",\"name\":\"WaterSpell\",\"damage\":0.0}," +
                 "{\"id\":\"171f6076-4eb5-4a7d-b3f2-2d650cc3d237\",\"name\":\"RegularSpell\",\"damage\":28.0}]", response.getContent());
         assertEquals(200, response.getStatus());
+    }
+    @Test
+    @Order(28)
+    void testConfigureDeckInvalidCardAmount() {
+        DeckService deckService = new DeckService();
+        Request request = new Request();
+
+        request.setHeaderMap(new HeaderMap());
+        request.setMethod(Method.PUT);
+        request.setPathname("/deck");
+        request.getHeaderMap().setAuthorizationTokenHeader("Basic kienboec-mtcgToken");
+        request.setBody("[\"845f0dc7-37d0-426e-994e-43fc3ac83c08\"," +
+                "\"99f8f8dc-e25e-4a95-aa2c-782823f36e2a\"]");
+        request.getHeaderMap().setContentLengthHeader(String.valueOf(request.getBody().length()));
+        request.getHeaderMap().setContentTypeHeader(String.valueOf(ContentType.JSON));
+
+        Response response = deckService.handleRequest(request);
+
+        assertEquals("{\"message\":\"The provided deck did not include the required amount of cards\"}", response.getContent());
+        assertEquals(400, response.getStatus());
     }
 }

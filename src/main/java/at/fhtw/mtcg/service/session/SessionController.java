@@ -6,6 +6,7 @@ import at.fhtw.mtcg.dal.repository.SessionRepository;
 import at.fhtw.mtcg.exception.DataAccessException;
 import at.fhtw.mtcg.exception.InsertFailedException;
 import at.fhtw.mtcg.exception.InvalidCredentialsException;
+import at.fhtw.mtcg.exception.InvalidTokenException;
 import at.fhtw.mtcg.model.UserCredentials;
 import at.fhtw.server.http.ContentType;
 import at.fhtw.server.http.HttpStatus;
@@ -39,6 +40,31 @@ public class SessionController extends Controller {
 
         } catch (JsonProcessingException e) {
             // e.printStackTrace();
+
+        } catch (Exception e) {
+            // e.printStackTrace();
+        }
+
+        unitOfWork.rollbackTransaction();
+        return new Response(HttpStatus.INTERNAL_SERVER_ERROR, ContentType.JSON, "{\"message\":\"Internal Server Error\"}");
+    }
+    public Response logout(Request request) {
+        UnitOfWork unitOfWork = new UnitOfWork();
+        SessionRepository sessionRepository = new SessionRepository(unitOfWork);
+
+        String token = request.getHeaderMap().getAuthorizationTokenHeader();
+
+        try {
+            int userId = sessionRepository.checkForValidToken(token); // check for valid token
+            sessionRepository.deleteTokenByTokenAndUserId(token, userId);
+
+            unitOfWork.commitTransaction();
+            return new Response(HttpStatus.OK, ContentType.JSON, "{\"message\":\"Logged out successfully\"}");
+
+        } catch(InvalidTokenException e) {
+            // e.printStackTrace();
+            unitOfWork.rollbackTransaction();
+            return new Response(HttpStatus.UNAUTHORIZED, ContentType.JSON, "{\"message\":\"Authentication information is missing or invalid\"}");
 
         } catch (Exception e) {
             // e.printStackTrace();

@@ -4,25 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c41f9cc9-d6bc-4197-a30a-3817a529b5a0" name="Changes" comment="finish trading service">
-      <change afterPath="$PROJECT_DIR$/src/test/java/at/fhtw/mtcg/MtcgTests.java" afterDir="false" />
+    <list default="true" id="c41f9cc9-d6bc-4197-a30a-3817a529b5a0" name="Changes" comment="add unique feature: logout">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/Timetracking.txt" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/Timetracking.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/service/card/CardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/service/card/CardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/service/deck/DeckController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/service/deck/DeckController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/service/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/service/user/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/server/server/HeaderMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/server/server/HeaderMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/server/server/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/server/server/Response.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/server/utils/RequestBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/server/utils/RequestBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/at/fhtw/mtcg/service/user/UserControllerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/at/fhtw/server/utils/RequestBuilderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/at/fhtw/server/utils/RequestBuilderTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/mtcg/service/user/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/fhtw/mtcg/service/user/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/server/server/HeaderMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/fhtw/server/server/HeaderMap.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/server/server/Response.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/fhtw/server/server/Response.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/server/utils/RequestBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/fhtw/server/utils/RequestBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/at/fhtw/mtcg/service/user/UserControllerTest$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/at/fhtw/mtcg/service/user/UserControllerTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/at/fhtw/server/utils/RequestBuilderTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/at/fhtw/server/utils/RequestBuilderTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/specification/Checklist.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/specification/Checklist.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/dal/repository/SessionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/dal/repository/SessionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/service/session/SessionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/service/session/SessionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/service/session/SessionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/service/session/SessionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/at/fhtw/mtcg/MtcgTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/at/fhtw/mtcg/MtcgTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/at/fhtw/mtcg/MtcgTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/at/fhtw/mtcg/MtcgTests.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +115,7 @@
       <recent name="server" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MtcgTests">
+  <component name="RunManager" selected="JUnit.MtcgTests.testConfigureDeckInvalidCardAmount">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="at.fhtw.Main" />
       <module name="http-server" />
@@ -179,7 +168,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MtcgTests.testShowDeck" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MtcgTests.testConfigureDeckInvalidCardAmount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="http-server" />
       <extension name="coverage">
         <pattern>
@@ -189,7 +178,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="at.fhtw.mtcg" />
       <option name="MAIN_CLASS_NAME" value="at.fhtw.mtcg.MtcgTests" />
-      <option name="METHOD_NAME" value="testShowDeck" />
+      <option name="METHOD_NAME" value="testConfigureDeckInvalidCardAmount" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -197,11 +186,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MtcgTests.testConfigureDeckInvalidCardAmount" />
         <item itemvalue="JUnit.MtcgTests" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="Database Script.createTables.sql" />
         <item itemvalue="Database Script.dropTables.sql" />
-        <item itemvalue="JUnit.MtcgTests.testShowDeck" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -252,7 +241,7 @@
       <workItem from="1672783185760" duration="725000" />
       <workItem from="1672784009780" duration="21000" />
       <workItem from="1672784101043" duration="2000" />
-      <workItem from="1672791901983" duration="8750000" />
+      <workItem from="1672791901983" duration="11934000" />
     </task>
     <task id="LOCAL-00001" summary="added user service">
       <created>1668993353729</created>
@@ -373,7 +362,21 @@
       <option name="project" value="LOCAL" />
       <updated>1672350701651</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="add unit tests">
+      <created>1672800767230</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1672800767230</updated>
+    </task>
+    <task id="LOCAL-00019" summary="add unit tests">
+      <created>1672800778576</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1672800778576</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -405,7 +408,9 @@
     <MESSAGE value="update battle service, add trading service" />
     <MESSAGE value="bugfixes, update trading service" />
     <MESSAGE value="finish trading service" />
-    <option name="LAST_COMMIT_MESSAGE" value="finish trading service" />
+    <MESSAGE value="add unit tests" />
+    <MESSAGE value="add unique feature: logout" />
+    <option name="LAST_COMMIT_MESSAGE" value="add unique feature: logout" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -21,12 +21,6 @@ CREATE TABLE tokens (
     PRIMARY KEY (token_id)
 );
 
-CREATE TABLE stacks (
-    stack_id SERIAL,
-
-    PRIMARY KEY (stack_id)
-);
-
 CREATE TABLE decks (
     deck_id SERIAL,
 
@@ -53,7 +47,6 @@ CREATE TABLE cards (
     trading_deal_id VARCHAR NULL,
     package_id INTEGER NULL,
     deck_id INTEGER NULL,
-    stack_id INTEGER NULL,
     name VARCHAR NOT NULL,
     damage FLOAT NOT NULL,
 
@@ -102,11 +95,6 @@ ALTER TABLE cards
     ADD CONSTRAINT deck_id_fk_cards
         FOREIGN KEY (deck_id)
             REFERENCES decks (deck_id);
-
-ALTER TABLE cards
-    ADD CONSTRAINT stack_id_fk_cards
-        FOREIGN KEY (stack_id)
-            REFERENCES stacks (stack_id);
 
 ALTER TABLE battles
     ADD CONSTRAINT user_1_id_fk_battles

@@ -211,15 +211,27 @@ REM --------------------------------------------------
 echo 17) battle
 start /b "kienboec battle" curl -X POST http://localhost:10001/battles --header "Authorization: Basic kienboec-mtcgToken"
 echo.
-echo.
 start /b "altenhof battle" curl -X POST http://localhost:10001/battles --header "Authorization: Basic altenhof-mtcgToken"
 echo.
+ping localhost -n 2 >NUL 2>NUL
 echo.
-ping localhost -n 3 >NUL 2>NUL
+echo.
 
 REM --------------------------------------------------
 echo 17.1) battlelog (unique feature)
 curl -X GET http://localhost:10001/battlelogs --header "Authorization: Basic kienboec-mtcgToken"
+echo.
+echo.
+
+REM --------------------------------------------------
+echo 17.2) logout (unique feature)
+curl -X DELETE http://localhost:10001/sessions --header "Authorization: Basic kienboec-mtcgToken"
+echo.
+echo should fail:
+curl -X GET http://localhost:10001/stats --header "Authorization: Basic kienboec-mtcgToken"
+echo.
+echo login:
+curl -X POST http://localhost:10001/sessions --header "Content-Type: application/json" -d "{\"Username\":\"kienboec\", \"Password\":\"daniel\"}"
 echo.
 echo.
 
@@ -246,10 +258,6 @@ curl -X GET http://localhost:10001/tradings --header "Authorization: Basic kienb
 echo.
 echo create trading deal
 curl -X POST http://localhost:10001/tradings --header "Content-Type: application/json" --header "Authorization: Basic kienboec-mtcgToken" -d "{\"Id\": \"6cd85277-4590-49d4-b0cf-ba0a921faad0\", \"CardToTrade\": \"1cb6ab86-bdb2-47e5-b6e4-68c5ab389334\", \"Type\": \"monster\", \"MinimumDamage\": 15}"
-:: curl -X POST http://localhost:10001/tradings --header "Content-Type: application/json" --header "Authorization: Basic kienboec-mtcgToken" -d "{\"Id\": \"6cd85277-4590-49d4-b0cf-ba0a921faad0_1\", \"CardToTrade\": \"a1618f1e-4f4c-4e09-9647-87e16f1edd2d\", \"Type\": \"monster\", \"MinimumDamage\": 15}"
-:: curl -X POST http://localhost:10001/tradings --header "Content-Type: application/json" --header "Authorization: Basic altenhof-mtcgToken" -d "{\"Id\": \"6cd85277-4590-49d4-b0cf-ba0a921faad0_2\", \"CardToTrade\": \"a1618f1e-4f4c-4e09-9647-87e16f1edd2d\", \"Type\": \"monster\", \"MinimumDamage\": 15}"
-:: curl -X POST http://localhost:10001/tradings --header "Content-Type: application/json" --header "Authorization: Basic kienboec--mtcgToken" -d "{\"Id\": \"6cd85277-4590-49d4-b0cf-ba0a921faad0_3\", \"CardToTrade\": \"02a9c76e-b17d-427f-9240-2dd49b0d3bfd\", \"Type\": \"monster\", \"MinimumDamage\": 15}"
-:: curl -X POST http://localhost:10001/tradings --header "Content-Type: application/json" --header "Authorization: Basic altenhof-mtcgToken" -d "{\"Id\": \"6cd85277-4590-49d4-b0cf-ba0a921faad0_4\", \"CardToTrade\": \"02a9c76e-b17d-427f-9240-2dd49b0d3bfd\", \"Type\": \"monster\", \"MinimumDamage\": 15}"
 echo.
 echo check trading deals
 curl -X GET http://localhost:10001/tradings --header "Authorization: Basic kienboec-mtcgToken"
@@ -258,7 +266,6 @@ curl -X GET http://localhost:10001/tradings --header "Authorization: Basic alten
 echo.
 echo delete trading deals
 curl -X DELETE http://localhost:10001/tradings/6cd85277-4590-49d4-b0cf-ba0a921faad0 --header "Authorization: Basic kienboec-mtcgToken"
-:: curl -X DELETE http://localhost:10001/tradings/asd --header "Authorization: Basic kienboec-mtcgToken"
 echo.
 echo.
 

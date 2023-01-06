@@ -2,6 +2,7 @@ package at.fhtw.mtcg.dal.repository;
 
 import at.fhtw.mtcg.dal.UnitOfWork;
 import at.fhtw.mtcg.exception.DataAccessException;
+import at.fhtw.mtcg.exception.DataNotFoundException;
 import at.fhtw.mtcg.exception.InsertFailedException;
 import at.fhtw.mtcg.exception.NoRunningBattleException;
 
@@ -33,13 +34,13 @@ public class BattlelogRepository {
     }
     public String getLastBattleLogByUserId(int userId) {
         try {
-            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("SELECT * FROM battles JOIN battle_logs ON battles.battle_id = battle_logs.battle_id WHERE user_1_id = ? OR user_2_id = ? ORDER BY battle_logs.battle_id DESC");
+            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("SELECT * FROM battles JOIN battle_logs ON battles.battle_id = battle_logs.battle_id WHERE (user_1_id = ? AND user_2_id IS NOT NULL) OR (user_1_id IS NOT NULL AND user_2_id = ?) ORDER BY battle_logs.battle_id DESC");
             preparedStatement.setInt(1, userId);
             preparedStatement.setInt(2, userId);
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if (!resultSet.next()) {
-                throw new NoRunningBattleException("Battle not found.");
+                throw new DataNotFoundException("Battle not found.");
             }
 
             return resultSet.getString("log");

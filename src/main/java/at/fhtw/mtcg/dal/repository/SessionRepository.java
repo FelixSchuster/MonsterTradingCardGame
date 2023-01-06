@@ -67,4 +67,21 @@ public class SessionRepository {
             throw new DataAccessException("DataAccessException in checkForValidToken: " + e);
         }
     }
+    public void deleteTokenByTokenAndUserId(String token, int userId) {
+        int numberOfDeletedRows = 0;
+
+        try {
+            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("DELETE FROM tokens WHERE token = ? AND user_id = ?");
+            preparedStatement.setString(1, token);
+            preparedStatement.setInt(2,userId);
+            numberOfDeletedRows = preparedStatement.executeUpdate();
+
+            if(numberOfDeletedRows == 0) {
+                throw new DeleteFailedException("The provided Token was not found.");
+            }
+
+        } catch(SQLException e) {
+            throw new DataAccessException("DataAccessException in deleteTokenByTokenAndUserId: " + e);
+        }
+    }
 }

@@ -11,8 +11,6 @@ import at.fhtw.mtcg.service.stats.StatsService;
 import at.fhtw.mtcg.service.trading.TradingService;
 import at.fhtw.mtcg.service.transaction.TransactionService;
 import at.fhtw.mtcg.service.user.UserService;
-import at.fhtw.sampleapp.service.echo.EchoService;
-import at.fhtw.sampleapp.service.weather.WeatherService;
 import at.fhtw.server.server.Server;
 import at.fhtw.server.utils.Router;
 
@@ -30,8 +28,6 @@ public class Main {
     private static Router configureRouter() {
         Router router = new Router();
 
-        router.addService("/weather", new WeatherService());
-        router.addService("/echo", new EchoService());
         router.addService("/users", new UserService());
         router.addService("/sessions", new SessionService());
         router.addService("/packages", new PackageService());

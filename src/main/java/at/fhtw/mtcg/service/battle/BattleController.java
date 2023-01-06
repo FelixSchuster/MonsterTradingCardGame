@@ -153,7 +153,7 @@ public class BattleController extends Controller {
                 battleRepository.createBattle(userId, deckId);
 
                 unitOfWork.commitTransaction();
-                return new Response(HttpStatus.OK, ContentType.JSON, "{\"message\":\"The battle has been carried out successfully.\"}");
+                return new Response(HttpStatus.OK, ContentType.JSON, "{\"message\":\"Waiting for another Player.\"}");
             }
 
         } catch(InvalidTokenException e) {

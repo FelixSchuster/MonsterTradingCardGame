@@ -28,20 +28,20 @@ public class BattlelogController extends Controller {
             return new Response(HttpStatus.OK, ContentType.PLAIN_TEXT, battlelog);
 
         } catch(DataNotFoundException e) {
-            e.printStackTrace();
+            // e.printStackTrace();
             unitOfWork.rollbackTransaction();
-            return new Response(HttpStatus.NOT_FOUND, ContentType.JSON, "{\"message\":\"The request was fine, but the user has not battled yet\"}");
+            return new Response(HttpStatus.NO_CONTENT, ContentType.JSON, "{\"message\":\"The request was fine, but the user has not battled yet\"}");
 
         } catch(InvalidTokenException e) {
-            e.printStackTrace();
+            // e.printStackTrace();
             unitOfWork.rollbackTransaction();
             return new Response(HttpStatus.UNAUTHORIZED, ContentType.JSON, "{\"message\":\"Authentication information is missing or invalid\"}");
 
         } catch(DataAccessException e) {
-            e.printStackTrace();
+            // e.printStackTrace();
 
         } catch (Exception e) {
-            e.printStackTrace();
+            // e.printStackTrace();
         }
 
         unitOfWork.rollbackTransaction();

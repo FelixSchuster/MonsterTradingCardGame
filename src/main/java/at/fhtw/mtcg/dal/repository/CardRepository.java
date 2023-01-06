@@ -130,7 +130,7 @@ public class CardRepository {
         List<Card> cards = new ArrayList<>();
 
         try {
-            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("SELECT * FROM cards WHERE user_id = ?");
+            PreparedStatement preparedStatement = this.unitOfWork.prepareStatement("SELECT * FROM cards WHERE user_id = ? ORDER BY card_id DESC");
             preparedStatement.setInt(1, userId);
             ResultSet resultSet = preparedStatement.executeQuery();
 

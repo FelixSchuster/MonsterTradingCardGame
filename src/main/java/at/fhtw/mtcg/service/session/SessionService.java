@@ -17,6 +17,10 @@ public class SessionService implements Service {
             return this.sessionController.login(request);
         }
 
+        if(request.getMethod() == Method.DELETE) {
+            return this.sessionController.logout(request);
+        }
+
         return null;
     }
 }

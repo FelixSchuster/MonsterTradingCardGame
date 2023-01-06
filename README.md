@@ -75,10 +75,10 @@ During production the code was tested using postman (https://www.postman.com/) a
 
 For more time efficient testing during refactoring a total number of 64 unit tests was added using the JUnit 5 API. The unit tests were designed to cover every edge case possible considering the implemented routes.
 
-## Lessions Learned
+## Lessons Learned
+- Java is fun
 - Unit tests surprisingly might not be completely useless
 - Drinking beer and programming does not fit well
-- Java is fun
 
 ## Tracked Time
 | Date       | Start Time | End Time | Duration     | Task                                               |

@@ -4,18 +4,44 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c41f9cc9-d6bc-4197-a30a-3817a529b5a0" name="Changes" comment="add unit tests, bugfixes">
+    <list default="true" id="c41f9cc9-d6bc-4197-a30a-3817a529b5a0" name="Changes" comment="refactoring">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/Timetracking.txt" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/Timetracking.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/database/EntityRelationshipDiagram.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/database/EntityRelationshipDiagram.drawio" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/database/EntityRelationshipDiagram.drawio.png" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/database/EntityRelationshipDiagram.drawio.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/database/createTables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/database/createTables.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/database/dropTables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/database/dropTables.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/mtcg/dal/repository/BattlelogRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/fhtw/mtcg/dal/repository/BattlelogRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/mtcg/dal/repository/CardRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/fhtw/mtcg/dal/repository/CardRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/mtcg/service/battle/BattleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/fhtw/mtcg/service/battle/BattleController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/mtcg/service/battlelog/BattlelogController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/fhtw/mtcg/service/battlelog/BattlelogController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/at/fhtw/mtcg/MtcgTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/at/fhtw/mtcg/MtcgTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/MonsterTradingCardGame.postman_collection.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/SampleUml.drawio" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/SampleUml.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/SampleUmlEdit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/Timetracking.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/UseCaseDiagram.drawio" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/UseCaseDiagram.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/UseCaseDiagram.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/database/EntityRelationshipDiagram.drawio" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/database/EntityRelationshipDiagram.drawio.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/database/createTables.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/database/dropTables.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/specification/Checklist.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/specification/Modified_MonsterTradingCards.exercise.curl.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/specification/MonsterTradingCards.exercise.curl.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/specification/MonsterTradingCards_exercise.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/specification/mtcg-api.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/sampleapp/controller/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/sampleapp/model/Weather.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/sampleapp/service/echo/EchoService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/sampleapp/service/weather/WeatherController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/sampleapp/service/weather/WeatherDAL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/sampleapp/service/weather/WeatherService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/at/fhtw/sampleapp/service/weather/WeatherTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/at/fhtw/server/server/RequestTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/at/fhtw/server/server/ServerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/at/fhtw/server/utils/RequestBuilderTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/fhtw/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/sampleapp/controller/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/sampleapp/model/Weather.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/sampleapp/service/echo/EchoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/sampleapp/service/weather/WeatherController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/sampleapp/service/weather/WeatherDAL.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/sampleapp/service/weather/WeatherService.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,32 +89,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
-    &quot;last_directory_selection&quot;: &quot;Z:/Technikum/SWEN/Server/http-server/src/main/java/at/fhtw&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Felix/OneDrive - FH Technikum Wien/BIF/3_Semester/SWEN1/Projekte/MonsterTradingCardGame&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.46666667&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "extract.method.default.visibility": "private",
+    "full.screen.before.presentation.mode": "false",
+    "last_directory_selection": "Z:/Technikum/SWEN/Server/http-server/src/main/java/at/fhtw",
+    "last_opened_file_path": "C:/Users/Felix/OneDrive - FH Technikum Wien/BIF/3_Semester/SWEN1/Projekte/MonsterTradingCardGame",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.46666667",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;RunConfigurationTargetLRU&quot;: [
-      &quot;757022c8-ac54-46ac-a80c-9ed0993322a7&quot;
+  "keyToStringList": {
+    "RunConfigurationTargetLRU": [
+      "757022c8-ac54-46ac-a80c-9ed0993322a7"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\edin\Workspaces\Swen1Projects\http-server\src\test\java" />
@@ -119,7 +146,7 @@
       <recent name="server" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MtcgTests">
+  <component name="RunManager" selected="Database Script.createTables.sql">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="at.fhtw.Main" />
       <module name="http-server" />
@@ -133,6 +160,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="createTables.sql" type="DatabaseScript" editBeforeRun="true" temporary="true">
+      <script-file value="$PROJECT_DIR$/misc/database/createTables.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="757022c8-ac54-46ac-a80c-9ed0993322a7" />
+      <method v="2" />
+    </configuration>
     <configuration name="createTables.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/documentation/database/createTables.sql" />
       <script-mode>FILE</script-mode>
@@ -141,6 +174,12 @@
     </configuration>
     <configuration name="createTables.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/database/createTables.sql" />
+      <script-mode>FILE</script-mode>
+      <data-source id="757022c8-ac54-46ac-a80c-9ed0993322a7" />
+      <method v="2" />
+    </configuration>
+    <configuration name="dropTables.sql" type="DatabaseScript" editBeforeRun="true" temporary="true">
+      <script-file value="$PROJECT_DIR$/misc/database/dropTables.sql" />
       <script-mode>FILE</script-mode>
       <data-source id="757022c8-ac54-46ac-a80c-9ed0993322a7" />
       <method v="2" />
@@ -172,29 +211,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MtcgTests.testTradeInvalidTradingDealId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="http-server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="at.fhtw.mtcg.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="at.fhtw.mtcg" />
-      <option name="MAIN_CLASS_NAME" value="at.fhtw.mtcg.MtcgTests" />
-      <option name="METHOD_NAME" value="testTradeInvalidTradingDealId" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MtcgTests" />
         <item itemvalue="Database Script.createTables.sql" />
         <item itemvalue="Database Script.dropTables.sql" />
+        <item itemvalue="JUnit.MtcgTests" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.MtcgTests.testTradeInvalidTradingDealId" />
+        <item itemvalue="Database Script.createTables.sql" />
       </list>
     </recent_temporary>
   </component>
@@ -247,7 +270,11 @@
       <workItem from="1672784101043" duration="2000" />
       <workItem from="1672791901983" duration="12049000" />
       <workItem from="1672837558027" duration="9692000" />
-      <workItem from="1672858572362" duration="3275000" />
+      <workItem from="1672858572362" duration="3322000" />
+      <workItem from="1672870483219" duration="8000" />
+      <workItem from="1672871406415" duration="174000" />
+      <workItem from="1673017325041" duration="922000" />
+      <workItem from="1673028457435" duration="8341000" />
     </task>
     <task id="LOCAL-00001" summary="added user service">
       <created>1668993353729</created>
@@ -396,7 +423,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672847289315</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="refactoring">
+      <created>1672866224136</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1672866224136</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -432,7 +466,8 @@
     <MESSAGE value="add unique feature: logout" />
     <MESSAGE value="add unique logout feature" />
     <MESSAGE value="add unit tests, bugfixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="add unit tests, bugfixes" />
+    <MESSAGE value="refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c41f9cc9-d6bc-4197-a30a-3817a529b5a0" name="Changes" comment="refactoring, documentation">
+    <list default="true" id="c41f9cc9-d6bc-4197-a30a-3817a529b5a0" name="Changes" comment="update README.md">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/model/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/model/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/service/battle/BattleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/fhtw/mtcg/service/battle/BattleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/mtcg/model/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/fhtw/mtcg/model/Card.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/fhtw/mtcg/service/battle/BattleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/fhtw/mtcg/service/battle/BattleController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,6 +244,16 @@
       <workItem from="1673017325041" duration="922000" />
       <workItem from="1673028457435" duration="8443000" />
       <workItem from="1673040741464" duration="746000" />
+      <workItem from="1673041897178" duration="87000" />
+      <workItem from="1673098576322" duration="139000" />
+      <workItem from="1673104032928" duration="615000" />
+      <workItem from="1673113985827" duration="23000" />
+      <workItem from="1673137766177" duration="945000" />
+      <workItem from="1673183993058" duration="139000" />
+      <workItem from="1673184309914" duration="2111000" />
+      <workItem from="1673186952809" duration="229000" />
+      <workItem from="1673191971354" duration="299000" />
+      <workItem from="1673192282820" duration="3085000" />
     </task>
     <task id="LOCAL-00001" summary="added user service">
       <created>1668993353729</created>
@@ -409,7 +423,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673040210062</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="update README.md">
+      <created>1673041976551</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1673041976551</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -447,7 +468,8 @@
     <MESSAGE value="add unit tests, bugfixes" />
     <MESSAGE value="refactoring" />
     <MESSAGE value="refactoring, documentation" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring, documentation" />
+    <MESSAGE value="update README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="update README.md" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -98,22 +98,20 @@ public class Card {
             }
         }
 
-        else {
-            if(this.isGoblinCard() && opponentCard.isDragonCard()) {
-                return 0;
-            }
-            if(this.isOrkCard() && opponentCard.isWizardCard()) {
-                return 0;
-            }
-            if(this.isWaterCard() && this.isSpellCard() && opponentCard.isKnightCard()) {
-                return Float.MAX_VALUE;
-            }
-            if(this.isSpellCard() && opponentCard.isKrakenCard()) {
-                return 0;
-            }
-            if(this.isDragonCard() && opponentCard.isFireCard() && opponentCard.isElfCard()) {
-                return 0;
-            }
+        if(this.isGoblinCard() && opponentCard.isDragonCard()) {
+            return 0;
+        }
+        if(this.isOrkCard() && opponentCard.isWizardCard()) {
+            return 0;
+        }
+        if(this.isWaterCard() && this.isSpellCard() && opponentCard.isKnightCard()) {
+            return Float.MAX_VALUE;
+        }
+        if(this.isSpellCard() && opponentCard.isKrakenCard()) {
+            return 0;
+        }
+        if(this.isDragonCard() && opponentCard.isFireCard() && opponentCard.isElfCard()) {
+            return 0;
         }
 
         return this.damage;

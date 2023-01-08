@@ -77,35 +77,37 @@ public class BattleController extends Controller {
                     Card card1 = deck1Cards.get(0);
                     Card card2 = deck2Cards.get(0);
 
-                    float card1Damage = card1.calculateDamage(card2);
-                    float card2Damage = card2.calculateDamage(card1);
+                    float card1CalculatedDamage = card1.calculateDamage(card2);
+                    float card2CalculatedDamage = card2.calculateDamage(card1);
 
                     battleLog += "# Round: " + (i + 1) + "\n\r";
-                    battleLog += user1.getName() + ": " + card1.getName() + " - " + card1.getDamage() + "\n\r";
-                    battleLog += user2.getName() + ": " + card2.getName() + " - " + card2.getDamage() + "\n\r";
+                    battleLog += user1.getName() + ": " + card1.getName() + " (" + card1.getDamage() + ") vs " +
+                            user2.getName() + ": " + card2.getName() + " (" + card2.getDamage() + ") " +
+                            "=> " + card1.getDamage() + " VS " + card2.getDamage() + " " +
+                            "-> " + card1CalculatedDamage + " VS " + card2CalculatedDamage + " => ";
 
-                    if(card1Damage > card2Damage) {
-                        battleLog += user1.getName() + " wins\n\r\n\r";
+                    if(card1CalculatedDamage > card2CalculatedDamage) {
+                        battleLog += card1.getName() + " wins\n\r";
                         user1Wins += 1;
                         deck1Cards.add(card2);
                         deck2Cards.remove(card2);
                     }
-                    if(card1Damage < card2Damage) {
-                        battleLog += user2.getName() + " wins\n\r\n\r";
+                    if(card1CalculatedDamage < card2CalculatedDamage) {
+                        battleLog += card2.getName() + " wins\n\r";
                         user2Wins += 1;
                         deck2Cards.add(card1);
                         deck1Cards.remove(card1);
                     }
-                    if(card1Damage == card2Damage) {
+                    if(card1CalculatedDamage == card2CalculatedDamage) {
                         battleLog += "Draw\n\r";
                     }
-                    battleLog += "Current count of cards " + user1.getName() + ": " + deck1Cards.size() + "\n\r";
-                    battleLog += "Current count of cards " + user2.getName() + ": " + deck2Cards.size() + "\n\r\n\n";
+                    battleLog += user1.getName() + ": " + user1Wins + " wins VS " + user2.getName() + ": " + user2Wins + " wins\n\r";
+                    battleLog += user1.getName() + ": " + deck1Cards.size() + " cards VS " + user2.getName() + ": " + deck2Cards.size() + " cards\n\r\n\r";
                 }
 
                 battleLog += "# Final result:\n\r";
-                battleLog += user1.getName() + ": " + user1Wins + " wins\n\r";
-                battleLog += user2.getName() + ": " + user2Wins + " wins\n\r";
+                battleLog += user1.getName() + ": " + user1Wins + " wins VS " + user2.getName() + ": " + user2Wins + " wins\n\r";
+                battleLog += user1.getName() + ": " + deck1Cards.size() + " cards VS " + user2.getName() + ": " + deck2Cards.size() + " cards\n\r\n\r";
 
                 UserStats user1Stats = userRepository.getUserStatsByUserId(user1Id);
                 UserStats user2Stats = userRepository.getUserStatsByUserId(user2Id);
@@ -138,7 +140,7 @@ public class BattleController extends Controller {
                     user1Stats.setLosses(user1Stats.getLosses() + 1);
                 }
                 else {
-                    battleLog += "Final result: draw!";
+                    battleLog += "Final result: Draw!";
                 }
 
                 userRepository.updateUserStatsByUserId(user1Id, user1Stats);
